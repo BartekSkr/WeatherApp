@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --div-background-color: rgba(241, 240, 240, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,4 +17,137 @@ body {
   height: 100vh;
   background: linear-gradient(rgb(37, 37, 187), rgb(34, 88, 250));
   color: whitesmoke;
+  letter-spacing: 0.1rem;
+}
+
+/* container */
+.container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+/* Search */
+.search {
+  position: relative;
+  padding: 0 1rem 2rem 1rem;
+}
+
+.search input {
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  width: 100%;
+  height: 3rem;
+  border-radius: 40px;
+}
+
+#searchIcon,
+#locationIcon {
+  color: grey;
+  position: absolute;
+}
+
+#searchIcon {
+  top: 1rem;
+  left: 2rem;
+}
+
+#locationIcon {
+  top: 1rem;
+  right: 2rem;
+}
+
+/* Today weather */
+.todayWeather {
+  padding: 1rem;
+}
+
+.location,
+.today-temp {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.todayIcon {
+  margin-right: 1rem;
+}
+
+#todayTemp {
+  font-size: 2rem;
+}
+
+.today-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--div-background-color);
+  border-radius: 10px;
+}
+
+.today-data div {
+  width: 33%;
+}
+
+.today-data p {
+  margin-bottom: 1rem;
+}
+
+.today-data :is(h4, span, p) {
+  padding: 2px;
+}
+
+/* Hourly & daily weather*/
+.hourlyWeather,
+.dailyWeather {
+  padding: 0 1rem 1rem 1rem;
+  text-align: left;
+}
+
+:is(.hourlyWeather, .dailyWeather) h2 {
+  margin-bottom: 1rem;
+}
+
+.hourlyScroll,
+.dailyScroll {
+  display: inline-flex;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.hourlyDiv,
+.dailyDiv {
+  background-color: var(--div-background-color);
+  border-radius: 10px;
+  min-width: 5rem;
+  margin-right: 1.2rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* scrollbar style */
+.hourlyScroll::-webkit-scrollbar,
+.dailyScroll::-webkit-scrollbar {
+  background: var(--div-background-color);
+  height: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.hourlyScroll::-webkit-scrollbar-thumb,
+.dailyScroll::-webkit-scrollbar-thumb {
+  background-color: rgba(177, 177, 177, 0.397);
+  border-radius: 0.25rem;
+  border: 0.25rem solid transparent;
+}
+
+.hourlyScroll::-webkit-scrollbar-thumb:hover,
+.dailyScroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(177, 177, 177, 0.7);
 }
