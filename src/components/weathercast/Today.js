@@ -1,20 +1,37 @@
-import React from 'react'
-import {faCloud} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState, useEffect} from 'react'
+import axios from 'axios'
+// import { onlyCity } from './helpers'
 
 export const Today = () => {
+  const API_KEY = '0bac33954886be6ef132dd40102b00fe'
+  const [weatherData, setWeatherData] = useState([])
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&exclude=minutely&appid=${API_KEY}`)
+        .then(res => {
+          setWeatherData(res.data)
+          console.log(res.data)
+          console.log(weatherData.current.weather[0])
+        })
+        .catch(err => {
+        console.log(err)
+      })
+    })
+  }, [])
+
   return (
     <div className='todayWeather'>
       <div className='location'>
-        <h1>Warsaw, PL</h1>
+        <h1>{weatherData.timezone}</h1>
         <p>Wednesday 17 March</p>
       </div>
       <div className='mainData'>
         <div className='today-temp'>
-          <FontAwesomeIcon icon={faCloud} size='4x' className='todayIcon' />
+          <img src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}.png`} className='todayIcon' alt='weather icon' />
           <span className='tempAndDesc'>
             <span id='todayTemp'>3°</span>
-            <span>Clouds</span>
+            <span>Cloudy</span>
           </span>
         </div>
       <div className='today-data'>
