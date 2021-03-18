@@ -56,8 +56,22 @@ body {
 }
 
 #locationIcon {
-  top: 1rem;
-  right: 2rem;
+  top: 0.55rem;
+  right: 1.6rem;
+  cursor: pointer;
+  background: transparent;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  outline: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+#locationIcon:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
 }
 
 /* Today weather */
