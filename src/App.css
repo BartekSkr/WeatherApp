@@ -2,6 +2,7 @@
 
 :root {
   --div-background-color: rgba(241, 240, 240, 0.2);
+  --scrollbar-thumb: rgba(177, 177, 177, 0.4);
 }
 
 * {
@@ -14,8 +15,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6rem;
-  height: 100vh;
-  background: linear-gradient(rgb(37, 37, 187), rgb(34, 88, 250));
+  background: linear-gradient(rgb(37, 37, 187), rgb(104, 141, 252)) fixed center;
   color: whitesmoke;
   letter-spacing: 0.1rem;
 }
@@ -71,12 +71,22 @@ body {
   margin-bottom: 1rem;
 }
 
+.today-temp {
+  display: flex;
+}
+
 h1 {
   margin-bottom: 1rem;
 }
 
 .todayIcon {
-  margin-right: 1rem;
+  margin-right: 2rem;
+  size: 3em;
+}
+
+.tempAndDesc {
+  display: grid;
+  margin-top: 0.7rem;
 }
 
 #todayTemp {
@@ -119,6 +129,9 @@ h1 {
   display: inline-flex;
   width: 100%;
   overflow-x: auto;
+  /* Firefox scrollbar style */
+  scrollbar-color: var(--scrollbar-thumb) var(--div-background-color);
+  scrollbar-width: thin;
 }
 
 .hourlyDiv,
@@ -142,12 +155,44 @@ h1 {
 
 .hourlyScroll::-webkit-scrollbar-thumb,
 .dailyScroll::-webkit-scrollbar-thumb {
-  background-color: rgba(177, 177, 177, 0.397);
+  background-color: var(--scrollbar-thumb);
   border-radius: 0.25rem;
   border: 0.25rem solid transparent;
 }
 
 .hourlyScroll::-webkit-scrollbar-thumb:hover,
 .dailyScroll::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(177, 177, 177, 0.7);
+  background-color: rgba(177, 177, 177, 0.6);
+}
+
+/* Layout on larger screens */
+@media (min-width: 700px) {
+  .search {
+    left: 50%;
+    transform: translate(-50%);
+    width: 500px;
+  }
+
+  .mainData {
+    display: flex;
+  }
+
+  .today-temp,
+  .today-data {
+    flex: 1;
+  }
+
+  .today-temp {
+    justify-content: center;
+    margin: auto;
+  }
+
+  .today-temp .todayIcon {
+    size: 7em;
+  }
+
+  .hourlyDiv,
+  .dailyDiv {
+    min-width: 8rem;
+  }
 }
