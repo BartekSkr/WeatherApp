@@ -9,12 +9,14 @@ export const Today = () => {
         <h1>Warsaw, PL</h1>
         <p>Wednesday 17 March</p>
       </div>
-      <div className='today-temp'>
-        <span className='todayIcon'>
-          <FontAwesomeIcon icon={faCloud} size='3x' />
-        </span>
-        <span id='todayTemp'>3°</span>
-      </div>
+      <div className='mainData'>
+        <div className='today-temp'>
+          <FontAwesomeIcon icon={faCloud} size='4x' className='todayIcon' />
+          <span className='tempAndDesc'>
+            <span id='todayTemp'>3°</span>
+            <span>Clouds</span>
+          </span>
+        </div>
       <div className='today-data'>
         <div>
           <h4>5°</h4>
@@ -36,5 +38,6 @@ export const Today = () => {
         </div>
       </div>
     </div>
+  </div>
   )
 }
