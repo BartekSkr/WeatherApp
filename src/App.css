@@ -95,7 +95,8 @@ h1 {
 
 .todayIcon {
   margin-right: 2rem;
-  size: 3em;
+  /* size: 3em; */
+  width: 100px;
 }
 
 .tempAndDesc {
