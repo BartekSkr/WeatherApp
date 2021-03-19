@@ -22,7 +22,6 @@ export const Today = () => {
   return (
     <div className='todayWeather'>
       <div className='location'>
-        {/* <h1>{weatherData.timezone}</h1> */}
         <h1>{onlyCity(weatherData.timezone)}</h1>
         <p>{currentDayName(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)}</p>
       </div>
