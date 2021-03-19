@@ -13,7 +13,7 @@ export const windDirection = (wind) => {
   if (wind > 270 && wind < 360) return 'NW'
 }
 
-//  current day name
+//  day name
 export const currentDayName = (unixDate) => {
   let day = new Date(unixDate * 1000)
   if (day.getDay() === 1) return 'Monday'
@@ -25,13 +25,20 @@ export const currentDayName = (unixDate) => {
   if (day.getDay() === 7) return 'Sunday'
 }
 
-//  current day
+//  day
 export const currentDay = (unixDate) => {
   let day = new Date(unixDate * 1000)
   return day.getDate()
 }
 
-//  current month
+//  month number
+export const currentMonthNumber = (unixDate) => {
+  let month = new Date(unixDate * 1000)
+  if (month.getMonth().toString().length === 1) return `0${month.getMonth()}`;
+  return month.getMonth()
+}
+
+//  month
 export const currentMonth = (unixDate) => {
   let month = new Date(unixDate * 1000)
   if (month.getMonth() === 0) return 'January'
@@ -48,13 +55,13 @@ export const currentMonth = (unixDate) => {
   if (month.getMonth() === 11) return 'December'
 }
 
-//  current hour
+//  hour
 export const currentHour = (unixDate) => {
   let hour = new Date(unixDate * 1000)
   return hour.getHours()
 }
 
-//  current minutes
+//  minutes
 export const currentMinutes = (unixDate) => {
   let minutes = new Date(unixDate * 1000)
   return minutes.getMinutes()

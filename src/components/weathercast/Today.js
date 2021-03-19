@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCity, windDirection } from './helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, currentMonthNumber, onlyCity, windDirection } from './helpers'
 
 export const Today = () => {
   const API_KEY = '0bac33954886be6ef132dd40102b00fe'
@@ -41,7 +41,7 @@ export const Today = () => {
           <span>Humidity</span>
         </div>
         <div>
-            <h4>{Math.round(weatherData.current?.wind_speed)} km/h</h4>
+          <h4>{Math.round(weatherData.current?.wind_speed)} km/h</h4>
           <p>Wind</p>
           <h4>{windDirection(weatherData.current?.wind_deg)}</h4>
           <span>Direction</span>
@@ -53,7 +53,7 @@ export const Today = () => {
           <span>Sunset</span>
         </div>
       </div>
+      </div>
     </div>
-  </div>
   )
 }

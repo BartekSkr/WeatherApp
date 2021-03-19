@@ -53,3 +53,14 @@ export const Hourly = () => {
     </div>
   )
 }
+
+// mapowanie wyników
+{/* <div className='hourlyScroll' value={weatherData}>
+  {weatherData.hourly?.map(hourly => (
+    <div className='hourlyDiv' key={hourly.dt}>
+    <p>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</p>
+    <p>{currentHour(hourly.dt)}:00</p>
+    <img src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`}alt='weather icon' />
+    <h3>{Math.round(hourly.temp)}°</h3>
+  )}
+</div> */}
