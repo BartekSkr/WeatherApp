@@ -1,16 +1,32 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, currentMonthNumber, onlyCity, windDirection } from './helpers'
+import WeatherContext from '../context/weatherContext'
 
 export const Today = () => {
-  const API_KEY = '0bac33954886be6ef132dd40102b00fe'
-  const [weatherData, setWeatherData] = useState([])
+  const weatherContext = useContext(WeatherContext)
+  const { weatherData } = weatherContext
+  // const API_KEY = '0bac33954886be6ef132dd40102b00fe'
+  // const [weatherData, setWeatherData] = useState([])
+
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(position => {
+  //     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${API_KEY}`)
+  //       .then(res => {
+  //         setWeatherData(res.data)
+  //         console.log(res.data)
+  //       })
+  //       .catch(err => {
+  //       console.log(err)
+  //       })
+  //   })
+  // }, [])
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
-      axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${API_KEY}`)
+      axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=0bac33954886be6ef132dd40102b00fe`)
         .then(res => {
-          setWeatherData(res.data)
+          // setWeatherData(res.data)
           console.log(res.data)
         })
         .catch(err => {
