@@ -11,7 +11,6 @@ export const WeatherState = props => {
       axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${API_KEY}`)
         .then(res => {
           setWeatherData(res.data)
-          console.log(res.data)
         })
         .catch(err => {
         console.log(err)
