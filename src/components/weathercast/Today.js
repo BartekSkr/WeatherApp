@@ -13,14 +13,14 @@ export const Today = () => {
         <p>{currentDayName(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)}</p>
       </div>
       <div className='mainData'>
-        <div className='today-temp'>
+        <div className='todayTemp'>
           <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='todayIcon' alt='weather icon' />
           <span className='tempAndDesc'>
-            <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
+            <span id='today-temp'>{Math.round(weatherData.current?.temp)}°</span>
             <span>{weatherData.current?.weather[0].description}</span>
           </span>
         </div>
-      <div className='today-data'>
+      <div className='todayData'>
         <div>
           <h4>{Math.round(weatherData.current?.feels_like)}°</h4>
           <p>Feels like</p>

@@ -9,11 +9,11 @@ export const Hourly = () => {
   return (
     <div className='hourlyWeather'>
       <h2>Hourly</h2>
-      <div className='hourlyScroll' value={weatherData}>
-        {weatherData.hourly?.map(hourly => (
-          <div className='hourlyDiv' key={hourly.dt}>
-            <p>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</p>
-            <p>{currentHour(hourly.dt)}:00</p>
+      <div className='scrollDiv' value={weatherData}>
+        {weatherData.hourly?.slice(1, 24).map(hourly => (
+          <div className='scrollBox' key={hourly.dt}>
+            <h5>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</h5>
+            <h4>{currentHour(hourly.dt)}:00</h4>
             <img src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`}alt='weather icon' />
             <h3>{Math.round(hourly.temp)}°</h3>
           </div>

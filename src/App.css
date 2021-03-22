@@ -74,18 +74,18 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-/* Today weather */
+/* Today's weather */
 .todayWeather {
   padding: 1rem;
 }
 
 .location,
-.today-temp {
+.todayTemp {
   text-align: left;
   margin-bottom: 1rem;
 }
 
-.today-temp {
+.todayTemp {
   display: flex;
 }
 
@@ -95,7 +95,6 @@ h1 {
 
 .todayIcon {
   margin-right: 2rem;
-  /* size: 3em; */
   width: 100px;
 }
 
@@ -104,11 +103,11 @@ h1 {
   margin-top: 0.7rem;
 }
 
-#todayTemp {
+#today-temp {
   font-size: 2rem;
 }
 
-.today-data {
+.todayData {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -116,15 +115,15 @@ h1 {
   border-radius: 10px;
 }
 
-.today-data div {
+.todayData div {
   width: 33%;
 }
 
-.today-data p {
+.todayData p {
   margin-bottom: 1rem;
 }
 
-.today-data :is(h4, span, p) {
+.todayData :is(h4, span, p) {
   padding: 2px;
 }
 
@@ -139,8 +138,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
-.hourlyScroll,
-.dailyScroll {
+.scrollDiv {
   display: inline-flex;
   width: 100%;
   overflow-x: auto;
@@ -149,8 +147,7 @@ h1 {
   scrollbar-width: thin;
 }
 
-.hourlyDiv,
-.dailyDiv {
+.scrollBox {
   background-color: var(--div-background-color);
   border-radius: 10px;
   min-width: 5rem;
@@ -161,27 +158,28 @@ h1 {
 }
 
 /* scrollbar style */
-.hourlyScroll::-webkit-scrollbar,
-.dailyScroll::-webkit-scrollbar {
+.scrollDiv::-webkit-scrollbar {
   background: var(--div-background-color);
   height: 0.5rem;
   border-radius: 0.25rem;
 }
 
-.hourlyScroll::-webkit-scrollbar-thumb,
-.dailyScroll::-webkit-scrollbar-thumb {
+.scrollDiv::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border-radius: 0.25rem;
   border: 0.25rem solid transparent;
 }
 
-.hourlyScroll::-webkit-scrollbar-thumb:hover,
-.dailyScroll::-webkit-scrollbar-thumb:hover {
+.scrollBox::-webkit-scrollbar-thumb:hover {
   background-color: rgba(177, 177, 177, 0.6);
 }
 
 /* Layout on larger screens */
-@media (min-width: 700px) {
+@media (min-width: 800px) {
+  .container {
+    padding: 5rem 8rem 0 8rem;
+  }
+
   .search {
     left: 50%;
     transform: translate(-50%);
@@ -192,22 +190,25 @@ h1 {
     display: flex;
   }
 
-  .today-temp,
-  .today-data {
+  .todayTemp,
+  .todayData {
     flex: 1;
   }
 
-  .today-temp {
+  .todayTemp {
     justify-content: center;
     margin: auto;
   }
 
-  .today-temp .todayIcon {
+  .todayTemp .todayIcon {
     size: 7em;
   }
 
-  .hourlyDiv,
-  .dailyDiv {
+  .scrollBox {
     min-width: 8rem;
+  }
+
+  :is(.hourlyWeather, .dailyWeather) h2 {
+    margin: 2rem 0 1rem 0;
   }
 }
