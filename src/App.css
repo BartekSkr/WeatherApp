@@ -26,6 +26,7 @@ body {
   margin: auto;
   text-align: center;
   padding-top: 2rem;
+  user-select: none;
 }
 
 /* Search */
@@ -155,6 +156,10 @@ h1 {
   margin-bottom: 0.5rem;
   padding: 1rem;
   text-align: center;
+}
+
+#scrollBoxId {
+  cursor: pointer;
 }
 
 /* scrollbar style */
