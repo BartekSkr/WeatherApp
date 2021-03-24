@@ -34,8 +34,9 @@ export const currentDay = (unixDate) => {
 //  month number
 export const currentMonthNumber = (unixDate) => {
   let month = new Date(unixDate * 1000)
-  if (month.getMonth().toString().length === 1) return `0${month.getMonth()}`;
-  return month.getMonth()
+  return month.getMonth().toString().length === 1
+    ? `0${month.getMonth()}`
+    : month.getMonth()
 }
 
 //  month
