@@ -62,11 +62,11 @@ h1 {
   font-size: 2rem;
 }
 
-/* .dailyDetails {
+.dailyDetails {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s;
-} */
+}
 
 .todayData,
 .dailyDetails {
@@ -126,11 +126,11 @@ h1 {
   text-align: center;
 }
 
-/* .visible {
+.visible {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s;
-} */
+}
 
 #scrollBoxId {
   cursor: pointer;
