@@ -4,14 +4,14 @@ import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
   const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
-  // const [ isVisible, setIsVisible ] = useState('');
+  const [ isVisible, setIsVisible ] = useState('');
   const weatherContext = useContext(WeatherContext)
   const { weatherData } = weatherContext
 
   const handleOnClick = dailyDetails => {
     return function () {
       setDailyDetailsWeather(dailyDetails)
-      // setIsVisible('visible')
+      setIsVisible('visible')
     }
   }
 
@@ -29,8 +29,8 @@ export const Daily = () => {
           ))}
         </div>
       </div>
-      {/* <div className={`dailyDetails ${isVisible}`}> */}
-      <div className='dailyDetails'>
+      {/* <div className='dailyDetails'> */}
+      <div className={`dailyDetails ${isVisible}`}>
         <div>
           <h4>{Math.round(dailyDetailsWeather.temp?.max)}°</h4>
           <p>Max temp</p>
