@@ -65,5 +65,6 @@ export const currentHour = (unixDate) => {
 //  minutes
 export const currentMinutes = (unixDate) => {
   let minutes = new Date(unixDate * 1000)
+  if (minutes.getMinutes().toString().length === 1) return `0${minutes.getMinutes()}`
   return minutes.getMinutes()
 }

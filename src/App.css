@@ -25,7 +25,8 @@ body {
   width: 90%;
   margin: auto;
   text-align: center;
-  padding-top: 2rem;
+  /* padding-top: 2rem; */
+  padding-top: 0.5rem;
   user-select: none;
 }
 
@@ -108,7 +109,8 @@ h1 {
   font-size: 2rem;
 }
 
-.todayData {
+.todayData,
+.dailyDetails {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -116,15 +118,22 @@ h1 {
   border-radius: 10px;
 }
 
-.todayData div {
+.dailyDetails {
+  margin: 0 1rem 0 1rem;
+}
+
+.todayData div,
+.dailyDetails div {
   width: 33%;
 }
 
-.todayData p {
+.todayData p,
+.dailyDetails p {
   margin-bottom: 1rem;
 }
 
-.todayData :is(h4, span, p) {
+.todayData :is(h4, span, p),
+.dailyDetails :is(h4, span, p) {
   padding: 2px;
 }
 
