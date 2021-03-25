@@ -3,16 +3,15 @@ import { currentDay, currentHour, currentMinutes, currentMonthNumber, windDirect
 import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
+  const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
+  // const [ isVisible, setIsVisible ] = useState('');
   const weatherContext = useContext(WeatherContext)
   const { weatherData } = weatherContext
-  const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
 
   const handleOnClick = dailyDetails => {
-    return function (e) {
-      e.preventDefault()
-      // console.log(dailyDetails)
+    return function () {
       setDailyDetailsWeather(dailyDetails)
-      console.log('dailyDetailsWeather: ', dailyDetailsWeather)
+      // setIsVisible('visible')
     }
   }
 
@@ -30,6 +29,7 @@ export const Daily = () => {
           ))}
         </div>
       </div>
+      {/* <div className={`dailyDetails ${isVisible}`}> */}
       <div className='dailyDetails'>
         <div>
           <h4>{Math.round(dailyDetailsWeather.temp?.max)}°</h4>
