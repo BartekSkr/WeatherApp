@@ -63,6 +63,7 @@ h1 {
 }
 
 .dailyDetails {
+  margin: 0 1rem 0 1rem;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s;
@@ -75,10 +76,6 @@ h1 {
   padding: 1rem;
   background-color: var(--div-background-color);
   border-radius: 10px;
-}
-
-.dailyDetails {
-  margin: 0 1rem 0 1rem;
 }
 
 .todayData div,
@@ -156,13 +153,7 @@ h1 {
 /* Layout on larger screens */
 @media (min-width: 800px) {
   .container {
-    padding: 5rem 8rem 0 8rem;
-  }
-
-  .search {
-    left: 50%;
-    transform: translate(-50%);
-    width: 500px;
+    padding: 1rem 8rem 0 8rem;
   }
 
   .mainData {
@@ -189,5 +180,9 @@ h1 {
 
   :is(.hourlyWeather, .dailyWeather) h2 {
     margin: 2rem 0 1rem 0;
+  }
+
+  .dailyDetails {
+    max-width: 50%;
   }
 }
