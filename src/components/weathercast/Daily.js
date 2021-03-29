@@ -14,7 +14,6 @@ export const Daily = () => {
       setDailyDetailsWeather(dailyDetails)
       setChosenDay(dailyDetails.dt)
       setIsVisible('visible')
-      console.log(weatherData)
     }
   }
 
