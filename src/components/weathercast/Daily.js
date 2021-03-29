@@ -3,11 +3,12 @@ import { currentDay, currentHour, currentMinutes, currentMonthNumber, windDirect
 import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
+  const weatherContext = useContext(WeatherContext)
+  const { weatherData } = weatherContext
+
   const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
   const [isVisible, setIsVisible] = useState('')
   const [chosenDay, setChosenDay] = useState('')
-  const weatherContext = useContext(WeatherContext)
-  const { weatherData } = weatherContext
 
   const handleOnClick = dailyDetails => {
     return function () {
