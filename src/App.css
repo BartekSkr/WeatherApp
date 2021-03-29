@@ -183,7 +183,8 @@ h1 {
     size: 7em;
   }
 
-  .scrollBox {
+  .scrollBox,
+  .scrollBoxClicked {
     min-width: 8rem;
   }
 
