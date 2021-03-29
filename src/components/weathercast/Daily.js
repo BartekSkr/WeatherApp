@@ -4,24 +4,26 @@ import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
   const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
-  const [ isVisible, setIsVisible ] = useState('');
+  const [isVisible, setIsVisible] = useState('')
+  const [chosenDay, setChosenDay] = useState('')
   const weatherContext = useContext(WeatherContext)
   const { weatherData } = weatherContext
 
   const handleOnClick = dailyDetails => {
     return function () {
       setDailyDetailsWeather(dailyDetails)
+      setChosenDay(dailyDetails.dt)
       setIsVisible('visible')
     }
   }
 
   return (
-    <Fragment>
+      < Fragment >
       <div className='dailyWeather'>
         <h2>Daily</h2>
         <div className='scrollDiv' value={weatherData}>
           {weatherData.daily?.slice(1).map(daily => (
-            <div className='scrollBox' id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
+            <div className={chosenDay === daily.dt ? 'scrollBoxClicked' : 'scrollBox'} id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
               <h5>{currentDay(daily.dt)}.{currentMonthNumber(daily.dt)}</h5>
               <img src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}alt='weather icon' />
               <h3>{Math.round(daily.temp.day)}°</h3>
@@ -29,7 +31,6 @@ export const Daily = () => {
           ))}
         </div>
       </div>
-      {/* <div className='dailyDetails'> */}
       <div className={`dailyDetails ${isVisible}`}>
         <div>
           <h4>{Math.round(dailyDetailsWeather.temp?.max)}°</h4>
