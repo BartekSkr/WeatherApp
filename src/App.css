@@ -196,3 +196,10 @@ h1 {
     max-width: 50%;
   }
 }
+
+/* bottom margin at phone screen */
+@media (max-height: 680px) {
+  .container {
+    margin-bottom: 1rem;
+  }
+}
