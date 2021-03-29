@@ -64,7 +64,6 @@ h1 {
 
 .dailyDetails {
   margin: 0 1rem 0 1rem;
-  /* margin: -0.5rem 1rem 0 1rem; */
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s;
@@ -114,14 +113,23 @@ h1 {
   scrollbar-width: thin;
 }
 
-.scrollBox {
-  background-color: var(--div-background-color);
+.scrollBox,
+.scrollBoxClicked {
   border-radius: 10px;
   min-width: 5rem;
   margin-right: 1.2rem;
   margin-bottom: 0.5rem;
   padding: 1rem;
   text-align: center;
+}
+
+.scrollBox {
+  background-color: var(--div-background-color);
+}
+
+/* click scrollBox */
+.scrollBoxClicked {
+  background-color: rgba(241, 240, 240, 0.5);
 }
 
 .visible {
