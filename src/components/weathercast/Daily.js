@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react'
-import { currentDay, currentHour, currentMinutes, currentMonthNumber, windDirection } from './helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonthNumber, windDirection } from './helpers'
 import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
@@ -26,6 +26,7 @@ export const Daily = () => {
           {weatherData.daily?.slice(1).map(daily => (
             <div className={chosenDay === daily.dt ? 'scrollBoxClicked' : 'scrollBox'} id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
               <h5>{currentDay(daily.dt)}.{currentMonthNumber(daily.dt)}</h5>
+              <h6>{currentDayName(daily.dt)}</h6>
               <img src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}alt='weather icon' />
               <h3>{Math.round(daily.temp.day)}°</h3>
             </div>
