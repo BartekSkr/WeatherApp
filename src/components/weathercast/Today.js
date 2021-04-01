@@ -1,15 +1,16 @@
 import React, { useContext} from 'react'
-import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCity, windDirection } from './helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, windDirection } from './helpers'
 import WeatherContext from '../context/weatherContext'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
   const { weatherData } = weatherContext
+  const { location } = weatherContext
 
   return (
     <div className='todayWeather'>
       <div className='location'>
-        <h1>{onlyCity(weatherData.timezone)}</h1>
+        <h1>{location.name}, {location.sys?.country}</h1>
         <p>{currentDayName(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)}</p>
       </div>
       <div className='mainData'>

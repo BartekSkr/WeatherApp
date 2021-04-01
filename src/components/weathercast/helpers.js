@@ -1,6 +1,3 @@
-//  cuts continent from city name
-export const onlyCity = (name) => name?.match(/\/(.*)/)[1]
-
 //  wind direction
 export const windDirection = (wind) => {
   if (wind === 0 || wind === 360) return 'N'
