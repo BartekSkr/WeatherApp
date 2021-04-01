@@ -27,6 +27,7 @@ body {
   text-align: center;
   padding-top: 0.5rem;
   user-select: none;
+  margin-bottom: 1rem;
 }
 
 /* Today's weather */
@@ -62,13 +63,6 @@ h1 {
   font-size: 2rem;
 }
 
-.dailyDetails {
-  margin: 0 1rem 0 1rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
 .todayData,
 .dailyDetails {
   display: flex;
@@ -91,6 +85,21 @@ h1 {
 .todayData :is(h4, span, p),
 .dailyDetails :is(h4, span, p) {
   padding: 2px;
+}
+
+.dailyDetails {
+  margin: 0 1rem 0 1rem;
+  display: none;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  /* transition: opacity 0.3s; */
+}
+
+.visible {
+  display: flex;
+  /* visibility: visible; */
+  /* opacity: 1; */
+  /* transition: opacity 0.3s; */
 }
 
 /* Hourly & daily weather*/
@@ -119,7 +128,7 @@ h1 {
   min-width: 5rem;
   margin-right: 1.2rem;
   margin-bottom: 0.5rem;
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: center;
 }
 
@@ -130,12 +139,6 @@ h1 {
 /* click scrollBox */
 .scrollBoxClicked {
   background-color: rgba(241, 240, 240, 0.5);
-}
-
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.3s;
 }
 
 #scrollBoxId {
@@ -194,12 +197,5 @@ h1 {
 
   .dailyDetails {
     max-width: 50%;
-  }
-}
-
-/* bottom margin at phone screen */
-@media (max-height: 680px) {
-  .container {
-    margin-bottom: 1rem;
   }
 }
