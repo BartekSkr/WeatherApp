@@ -1,13 +1,13 @@
 //  wind direction
 export const windDirection = (wind) => {
-  if (wind === 0 || wind === 360) return 'N'
-  if (wind > 0 && wind < 90) return 'NE'
-  if (wind === 90) return 'E'
-  if (wind > 90 && wind < 180) return 'SE'
-  if (wind === 180) return 'S'
-  if (wind > 180 && wind < 270) return 'SW'
-  if (wind === 270) return 'W'
-  if (wind > 270 && wind < 360) return 'NW'
+  if (wind === 0 || wind === 360) return 'N ⬇'
+  if (wind > 0 && wind < 90) return 'NE ↙'
+  if (wind === 90) return 'E ⬅'
+  if (wind > 90 && wind < 180) return 'SE ↖'
+  if (wind === 180) return 'S ⬆'
+  if (wind > 180 && wind < 270) return 'SW ↗'
+  if (wind === 270) return 'W ➡'
+  if (wind > 270 && wind < 360) return 'NW ↘'
 }
 
 //  day name
