@@ -13,13 +13,13 @@ export const windDirection = (wind) => {
 //  day name
 export const currentDayName = (unixDate) => {
   let day = new Date(unixDate * 1000)
+  if (day.getDay() === 0) return 'Sunday'
   if (day.getDay() === 1) return 'Monday'
   if (day.getDay() === 2) return 'Tuesday'
   if (day.getDay() === 3) return 'Wednesday'
   if (day.getDay() === 4) return 'Thursday'
   if (day.getDay() === 5) return 'Friday'
   if (day.getDay() === 6) return 'Saturday'
-  if (day.getDay() === 7) return 'Sunday'
 }
 
 //  day
