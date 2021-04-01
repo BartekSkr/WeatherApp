@@ -11,7 +11,7 @@ export const Today = () => {
     <div className='todayWeather'>
       <div className='location'>
         <h1>{location.name}, {location.sys?.country}</h1>
-        <p>{currentDayName(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)}</p>
+        <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
       </div>
       <div className='mainData'>
         <div className='todayTemp'>
