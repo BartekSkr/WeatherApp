@@ -12,7 +12,10 @@ export const Search = () => {
       <button id='searchButton'>
         <FontAwesomeIcon icon={faSearch} id='searchIcon' />
       </button>
-      <input type="text" className='searchInput' placeholder='Search city...' onKeyUp={handleClickEnter} />
+      <input type="text" className='searchInput' placeholder='Search city...'
+        onClick={(e) => e.target.value = ''}
+        onKeyUp={handleClickEnter}
+      />
       <button id='locationButton' onClick={handleUserLocation}>
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />
       </button>
