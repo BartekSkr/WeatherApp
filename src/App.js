@@ -3,6 +3,7 @@ import { WeatherState } from './components/context/WeatherState';
 import { Toast } from './components/toast/Toast';
 import { Daily } from './components/weathercast/Daily';
 import { Hourly } from './components/weathercast/Hourly';
+import { Search } from './components/weathercast/Search';
 import { Today } from './components/weathercast/Today';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <Toast />
+        <Search />
         <Today />
         <Hourly />
         <Daily />

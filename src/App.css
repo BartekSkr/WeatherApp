@@ -30,6 +30,54 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Search input */
+.search {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.searchInput {
+  width: 100%;
+  height: 2rem;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  outline: none;
+  overflow: hidden;
+  border: none;
+  text-indent: 2rem;
+}
+
+#searchButton,
+#locationButton {
+  color: rgb(177, 177, 177);
+  overflow: hidden;
+  outline: none;
+  border: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.9rem;
+  background: none;
+  position: absolute;
+}
+
+#searchButton {
+  top: 0.1rem;
+  left: 0.1rem;
+}
+
+#locationButton {
+  cursor: pointer;
+  top: 0.1rem;
+  right: 0.1rem;
+}
+
+#locationButton:hover {
+  color: blue;
+}
+
 /* Today's weather */
 .todayWeather {
   padding: 1rem;
@@ -160,6 +208,10 @@ h1 {
 @media (min-width: 800px) {
   .container {
     padding: 1rem 8rem 0 8rem;
+  }
+
+  .search {
+    width: 50%;
   }
 
   .mainData {
