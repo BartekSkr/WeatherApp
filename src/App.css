@@ -90,16 +90,10 @@ h1 {
 .dailyDetails {
   margin: 0 1rem 0 1rem;
   display: none;
-  /* visibility: hidden; */
-  /* opacity: 0; */
-  /* transition: opacity 0.3s; */
 }
 
 .visible {
   display: flex;
-  /* visibility: visible; */
-  /* opacity: 1; */
-  /* transition: opacity 0.3s; */
 }
 
 /* Hourly & daily weather*/
