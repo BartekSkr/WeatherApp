@@ -7,8 +7,33 @@ export const WeatherState = props => {
   const [location, setLocation] = useState([])
   const [weatherData, setWeatherData] = useState([])
 
+  useEffect(() => { handleUserLocation() }, [])
 
-  useEffect(() => {
+  //  searching city
+  const handleSearchCity = e => {
+    if (e.key === 'Enter') {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=${API_KEY}`)
+        .then(res => {
+          axios.all([
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&appid=${API_KEY}`),
+            axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&exclude=minutely&appid=${API_KEY}`)
+          ])
+            .then(res => {
+              setLocation(res[0].data)
+              setWeatherData(res[1].data)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
+
+  //  showing data for user location
+  const handleUserLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
       let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${API_KEY}`
       let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${API_KEY}`
@@ -23,12 +48,12 @@ export const WeatherState = props => {
         })
         .catch(err => {
           console.log(err)
-      })
+        })
     })
-  }, [])
+  }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location }}>
+    <WeatherContext.Provider value={{ weatherData, location, handleSearchCity, handleUserLocation }}>
       {props.children}
     </WeatherContext.Provider>
   )
