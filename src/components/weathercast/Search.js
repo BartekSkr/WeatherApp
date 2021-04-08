@@ -5,7 +5,7 @@ import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 export const Search = () => {
   const weatherContext = useContext(WeatherContext)
-  const { handleClickEnter, handleUserLocation } = weatherContext
+  const { handleSearchCity, handleUserLocation } = weatherContext
 
   return (
     <div className='search'>
@@ -14,7 +14,7 @@ export const Search = () => {
       </button>
       <input type="text" className='searchInput' placeholder='Search city...'
         onClick={(e) => e.target.value = ''}
-        onKeyUp={handleClickEnter}
+        onKeyUp={handleSearchCity}
       />
       <button id='locationButton' onClick={handleUserLocation}>
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />

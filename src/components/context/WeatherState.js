@@ -6,36 +6,30 @@ export const WeatherState = props => {
   const API_KEY = '0bac33954886be6ef132dd40102b00fe'
   const [location, setLocation] = useState([])
   const [weatherData, setWeatherData] = useState([])
-  const [searchCity, setSearchCity] = useState([])
-
-  const handleClickEnter = e => {
-    if (e.key === 'Enter') return handleSearchCity(e)
-  }
 
   useEffect(() => { handleUserLocation() }, [])
 
-  //  searching city to show data
+  //  searching city
   const handleSearchCity = e => {
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=${API_KEY}`)
-      .then(res => {
-        setSearchCity(res.data);
-        console.log(searchCity)
-
-        axios.all([
-          axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${searchCity.coord.lat}&lon=${searchCity.coord.lon}&units=metric&appid=${API_KEY}`),
-          axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${searchCity.coord.lat}&lon=${searchCity.coord.lon}&units=metric&exclude=minutely&appid=${API_KEY}`)
-        ])
-          .then(res => {
-            setLocation(res[0].data)
-            setWeatherData(res[1].data)
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    if (e.key === 'Enter') {
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=${API_KEY}`)
+        .then(res => {
+          axios.all([
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&appid=${API_KEY}`),
+            axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&exclude=minutely&appid=${API_KEY}`)
+          ])
+            .then(res => {
+              setLocation(res[0].data)
+              setWeatherData(res[1].data)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 
   //  showing data for user location
@@ -59,7 +53,7 @@ export const WeatherState = props => {
   }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location, handleClickEnter, handleUserLocation }}>
+    <WeatherContext.Provider value={{ weatherData, location, handleSearchCity, handleUserLocation }}>
       {props.children}
     </WeatherContext.Provider>
   )
