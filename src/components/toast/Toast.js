@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import './Toast.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 
 export const Toast = () => {
-  const [visible, setVisible] = useState('')
+  const [dailyVisible, setDailyVisible] = useState('')
+  const [locationVisible, setLocationVisible] = useState('')
 
   return (
-    <div className={`toastContainer ${visible}`}>
-      <FontAwesomeIcon icon={faCheckCircle} size='2x' id='check-icon' onClick={() => setVisible('hide')} />
-      <p className='toastMessage'>Click on a next day in 'Daily' to see weather details</p>
-    </div>
+    <Fragment>
+      <div className={`toastDailyInfo ${dailyVisible}`}>
+        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon' onClick={() => setDailyVisible('hide')} />
+        <p className='toastMessage'>Click on a next day in 'Daily' to see weather details</p>
+      </div>
+      <div className={`toastLocationInfo ${locationVisible}`}>
+        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon' onClick={() => setLocationVisible('hide')} />
+        <p className='toastMessage'>Click on <FontAwesomeIcon icon={faMapMarkerAlt}/> to see weather for your location</p>
+      </div>
+    </Fragment>
   )
 }
