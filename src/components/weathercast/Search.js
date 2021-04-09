@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import ReactTooltip from 'react-tooltip'
 import WeatherContext from '../context/weatherContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
@@ -16,9 +17,13 @@ export const Search = () => {
         onClick={(e) => e.target.value = ''}
         onKeyUp={handleSearchCity}
       />
-      <button id='locationButton' onClick={handleUserLocation}>
+      <button data-tip data-for='locationBtn' id='locationButton' onClick={handleUserLocation}>
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />
       </button>
+      {/* Tooltip for location button */}
+      <ReactTooltip id='locationBtn' place='left' effect='solid' >
+        Show weather for your location
+      </ReactTooltip>
     </div>
   )
 }
