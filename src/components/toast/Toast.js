@@ -10,8 +10,8 @@ export const Toast = () => {
   return (
     <Fragment>
       <div className={`toastDailyInfo ${dailyVisible}`}>
-        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon' onClick={() => setDailyVisible('hide')} />
-        <p className='toastMessage'>Click on a next day in 'Daily' to see weather details</p>
+        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon daily' onClick={() => setDailyVisible('hide')} />
+        <p className='toastMessage'>Click on a specific day in 'Daily' field to see weather details</p>
       </div>
       <div className={`toastLocationInfo ${locationVisible}`}>
         <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon' onClick={() => setLocationVisible('hide')} />
