@@ -9,15 +9,15 @@ import { Today } from './components/weathercast/Today';
 function App() {
   return (
     <WeatherState>
-    <div className="App">
-      <div className='container'>
-        <Toast />
-        <Search />
-        <Today />
-        <Hourly />
-        <Daily />
+      <div className="App">
+        <div className='container'>
+          <Toast />
+          <Search />
+          <Today />
+          <Hourly />
+          <Daily />
+        </div>
       </div>
-    </div>
     </WeatherState>
   );
 }
