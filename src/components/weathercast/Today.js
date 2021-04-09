@@ -1,5 +1,5 @@
 import React, { useContext} from 'react'
-import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from './helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weatherContext'
 
 export const Today = () => {

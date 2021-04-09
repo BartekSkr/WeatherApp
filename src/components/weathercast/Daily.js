@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react'
-import { currentDay, currentDayName, currentHour, currentMinutes, currentMonthNumber, windDirection } from './helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonthNumber, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weatherContext'
 
 export const Daily = () => {
