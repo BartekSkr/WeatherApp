@@ -1,4 +1,5 @@
-.toastContainer {
+.toastDailyInfo,
+.toastLocationInfo {
   background-color: rgba(252, 173, 26);
   box-sizing: border-box;
   width: 350px;
@@ -7,20 +8,28 @@
   border-radius: 10px;
   z-index: 10;
   position: fixed;
-  top: 1rem;
-  right: 0.5rem;
   transition: transform 0.6s ease-in-out;
   animation: toast-in-right 0.7s;
 }
 
-#check-icon {
+.toastDailyInfo {
+  top: 9.5rem;
+  right: 0.5rem;
+}
+
+.toastLocationInfo {
+  top: 4rem;
+  right: 0.5rem;
+}
+
+.check-icon {
   cursor: pointer;
   position: relative;
   top: 0.6rem;
   margin-right: 0.9rem;
 }
 
-#check-icon:hover {
+.check-icon:hover {
   color: rgba(0, 155, 114);
   transition: 0.3s ease-in-out;
 }
