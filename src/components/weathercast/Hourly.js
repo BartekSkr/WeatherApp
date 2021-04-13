@@ -10,7 +10,7 @@ export const Hourly = () => {
     <div className='hourlyWeather'>
       <h2>Hourly</h2>
       <div className='scrollDiv' value={weatherData}>
-        {weatherData.hourly?.slice(1, 25).map(hourly => (
+        {weatherData.hourly?.slice(1, 26).map(hourly => (
           <div className='scrollBox' key={hourly.dt}>
             <h5>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</h5>
             <h4>{currentHour(hourly.dt)}:00</h4>
