@@ -4,8 +4,7 @@ import WeatherContext from '../context/weatherContext'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
-  const { weatherData } = weatherContext
-  const { location } = weatherContext
+  const { weatherData, location } = weatherContext
 
   return (
     <div className='todayWeather'>
