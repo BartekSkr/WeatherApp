@@ -24,8 +24,6 @@ export const currentDayName = unixDate => {
 
 //  day
 export const currentDay = unixDate => {
-  // let day = new Date(unixDate * 1000)
-  // return day.getDate()
   return new Date(unixDate * 1000).getDate()
 }
 
@@ -56,8 +54,6 @@ export const currentMonth = unixDate => {
 
 //  hour
 export const currentHour = unixDate => {
-  // let hour = new Date(unixDate * 1000)
-  // return hour.getHours()
   return new Date(unixDate * 1000).getHours()
 }
 
