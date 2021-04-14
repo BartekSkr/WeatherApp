@@ -25,12 +25,16 @@
 .check-icon {
   cursor: pointer;
   position: relative;
-  top: 0.6rem;
+  /* top: 0.6rem; */
   margin-right: 0.9rem;
 }
 
 .daily {
   top: 1.4rem;
+}
+
+.info {
+  top: 0.6rem;
 }
 
 .check-icon:hover {
@@ -70,5 +74,13 @@
   .check-icon {
     width: 25px;
     height: 25px;
+  }
+
+  .info {
+    top: 0.8rem;
+  }
+
+  .daily {
+    top: 1.6rem;
   }
 }

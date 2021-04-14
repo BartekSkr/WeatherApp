@@ -14,7 +14,7 @@ export const Toast = () => {
         <p className='toastMessage'>Click on a specific day in 'Daily' field to see weather details</p>
       </div>
       <div className={`toastLocationInfo ${locationVisible}`}>
-        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon' onClick={() => setLocationVisible('hide')} />
+        <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon info' onClick={() => setLocationVisible('hide')} />
         <p className='toastMessage'>Click on <FontAwesomeIcon icon={faMapMarkerAlt}/> to see weather for your location</p>
       </div>
     </Fragment>
