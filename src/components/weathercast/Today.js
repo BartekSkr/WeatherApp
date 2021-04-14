@@ -1,4 +1,4 @@
-import React, { Fragment, useContext} from 'react'
+import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weatherContext'
 

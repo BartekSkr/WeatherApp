@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import WeatherContext from './weatherContext'
 
-export const WeatherState = props => {
+export const WeatherState = ({ children }) => {
   const API_KEY = '0bac33954886be6ef132dd40102b00fe'
   const [location, setLocation] = useState([])
   const [weatherData, setWeatherData] = useState([])
@@ -57,7 +57,7 @@ export const WeatherState = props => {
 
   return (
     <WeatherContext.Provider value={{ weatherData, location, display, handleSearchCity, handleUserLocation }}>
-      {props.children}
+      {children}
     </WeatherContext.Provider>
   )
 }
