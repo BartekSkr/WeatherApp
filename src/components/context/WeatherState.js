@@ -6,6 +6,7 @@ export const WeatherState = props => {
   const API_KEY = '0bac33954886be6ef132dd40102b00fe'
   const [location, setLocation] = useState([])
   const [weatherData, setWeatherData] = useState([])
+  const [display, setDisplay] = useState(false)
 
   useEffect(() => { handleUserLocation() }, [])
 
@@ -21,6 +22,7 @@ export const WeatherState = props => {
             .then(res => {
               setLocation(res[0].data)
               setWeatherData(res[1].data)
+              setDisplay(true)
             })
             .catch(err => {
               console.log(err)
@@ -45,6 +47,7 @@ export const WeatherState = props => {
         .then(res => {
           setLocation(res[0].data)
           setWeatherData(res[1].data)
+          setDisplay(true)
         })
         .catch(err => {
           console.log(err)
@@ -53,7 +56,7 @@ export const WeatherState = props => {
   }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location, handleSearchCity, handleUserLocation }}>
+    <WeatherContext.Provider value={{ weatherData, location, display, handleSearchCity, handleUserLocation }}>
       {props.children}
     </WeatherContext.Provider>
   )
