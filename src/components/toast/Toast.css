@@ -55,3 +55,20 @@
     transform: translateX(0);
   }
 }
+
+/* phone screens */
+@media (max-width: 450px) {
+  .toastDailyInfo,
+  .toastLocationInfo {
+    width: 300px;
+  }
+
+  .toastMessage {
+    font-size: 0.9rem;
+  }
+
+  .check-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
