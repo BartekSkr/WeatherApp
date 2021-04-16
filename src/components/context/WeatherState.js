@@ -7,28 +7,19 @@ export const WeatherState = ({ children }) => {
   const [weatherData, setWeatherData] = useState([])
   const [display, setDisplay] = useState(false)
 
-  // let apiKey
-  let apiKey
-
   useEffect(() => {
     handleUserLocation()
     //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  if (process.env.NODE_ENV !== 'production') {
-    apiKey = process.env.REACT_APP_API_KEY
-  } else {
-    apiKey = process.env.API_KEY
-  }
-
   //  searching city
   const handleSearchCity = e => {
     if (e.key === 'Enter') {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=${apiKey}`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&units=metric&appid=${process.env.REACT_APP_API_KEY}`)
         .then(res => {
           axios.all([
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&appid=${apiKey}`),
-            axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&exclude=minutely&appid=${apiKey}`)
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`),
+            axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${res.data.coord.lat}&lon=${res.data.coord.lon}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`)
           ])
             .then(res => {
               setLocation(res[0].data)
@@ -48,8 +39,8 @@ export const WeatherState = ({ children }) => {
   //  showing data for user location
   const handleUserLocation = () => {
     navigator.geolocation.getCurrentPosition(position => {
-      let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`
-      let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${apiKey}`
+      let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
 
       axios.all([
         axios.get(locationApi),
