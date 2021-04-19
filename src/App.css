@@ -230,7 +230,8 @@ h1 {
     padding: 1rem 8rem 0 8rem;
   }
 
-  .search {
+  .search,
+  .errorInfo {
     width: 50%;
   }
 
