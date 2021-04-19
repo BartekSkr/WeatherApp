@@ -32,29 +32,51 @@ export const WeatherState = ({ children }) => {
         })
         .catch(err => {
           console.log(err)
+          window.alert(`Please enter correct city name`)
         })
     }
   }
 
   //  showing data for user location
   const handleUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(position => {
-      let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-      let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+        let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
 
-      axios.all([
-        axios.get(locationApi),
-        axios.get(weatherDataApi)
-      ])
-        .then(res => {
-          setLocation(res[0].data)
-          setWeatherData(res[1].data)
-          setDisplay(true)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    })
+        axios.all([
+          axios.get(locationApi),
+          axios.get(weatherDataApi)
+        ])
+          .then(res => {
+            setLocation(res[0].data)
+            setWeatherData(res[1].data)
+            setDisplay(true)
+          })
+          .catch(err => console.log(err))
+      },
+      function (error) {
+        if (error.code === 1) window.alert('Please enable geolocation in the browser!')
+      }
+    )
+
+    // navigator.geolocation.getCurrentPosition(position => {
+    //   let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+    //   let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
+
+    //   axios.all([
+    //     axios.get(locationApi),
+    //     axios.get(weatherDataApi)
+    //   ])
+    //     .then(res => {
+    //       setLocation(res[0].data)
+    //       setWeatherData(res[1].data)
+    //       setDisplay(true)
+    //     })
+    //     .catch(err => {
+    //       console.log(err)
+    //     })
+    // })
   }
 
   return (
