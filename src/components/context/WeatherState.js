@@ -6,6 +6,8 @@ export const WeatherState = ({ children }) => {
   const [location, setLocation] = useState([])
   const [weatherData, setWeatherData] = useState([])
   const [display, setDisplay] = useState(false)
+  const [locationError, setLocationError] = useState(false)
+  const [cityNameError, setCityNameError] = useState(false)
 
   useEffect(() => {
     handleUserLocation()
@@ -25,6 +27,8 @@ export const WeatherState = ({ children }) => {
               setLocation(res[0].data)
               setWeatherData(res[1].data)
               setDisplay(true)
+              setLocationError(false)
+              setCityNameError(false)
             })
             .catch(err => {
               console.log(err)
@@ -32,7 +36,12 @@ export const WeatherState = ({ children }) => {
         })
         .catch(err => {
           console.log(err)
-          window.alert(`Please enter correct city name`)
+          // window.alert(`Please enter correct city name`)
+          if (err) {
+            setCityNameError(true)
+            setLocationError(false)
+            setDisplay(false)
+          }
         })
     }
   }
@@ -52,13 +61,21 @@ export const WeatherState = ({ children }) => {
             setLocation(res[0].data)
             setWeatherData(res[1].data)
             setDisplay(true)
+            setLocationError(false)
+            setCityNameError(false)
           })
           .catch(err => console.log(err))
       },
       function (error) {
-        if (error.code === 1) window.alert('Please enable geolocation in the browser!')
+        // if (error.code === 1) window.alert('Please enable geolocation in the browser!')
+        if (error.code === 1) {
+          setLocationError(true)
+          setCityNameError(false)
+          setDisplay(false)
+        }
       }
     )
+
 
     // navigator.geolocation.getCurrentPosition(position => {
     //   let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
@@ -80,7 +97,7 @@ export const WeatherState = ({ children }) => {
   }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location, display, handleSearchCity, handleUserLocation }}>
+    <WeatherContext.Provider value={{ weatherData, location, display, locationError, cityNameError, handleSearchCity, handleUserLocation }}>
       {children}
     </WeatherContext.Provider>
   )

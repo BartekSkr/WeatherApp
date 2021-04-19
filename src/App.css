@@ -112,12 +112,20 @@ h1 {
 }
 
 .todayData,
-.dailyDetails {
+.dailyDetails,
+.errorInfo {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   background-color: var(--div-background-color);
   border-radius: 10px;
+}
+
+.errorInfo {
+  font-size: 1.5rem;
+  width: 80%;
+  margin: 4rem auto;
+  justify-content: center;
 }
 
 .todayData div,

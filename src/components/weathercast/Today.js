@@ -4,10 +4,20 @@ import WeatherContext from '../context/weatherContext'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
-  const { weatherData, location, display } = weatherContext
+  const { weatherData, location, display, locationError, cityNameError } = weatherContext
 
   return (
     <Fragment>
+      {locationError === true &&
+        <div className='errorInfo'>
+          <p>Please enable geolocation or enter a city name.</p>
+        </div>
+      }
+      {cityNameError === true &&
+        <div className='errorInfo'>
+          <p>Sorry, the specified city was not found.</p>
+        </div>
+      }
       {display === true &&
         <div className='todayWeather'>
           <div className='location'>
@@ -45,6 +55,16 @@ export const Today = () => {
           </div>
         </div>
       }
+      {/* {locationError === true &&
+        <div className='errorInfo'>
+          <p>Please enable geolocation or enter a city name.</p>
+        </div>
+      }
+      {cityNameError === true &&
+        <div className='errorInfo'>
+          <p>Please enter valid city name</p>
+        </div>
+      } */}
     </Fragment>
   )
 }
