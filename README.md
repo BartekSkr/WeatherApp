@@ -14,4 +14,4 @@ The API used in the application comes from [Open Weather](https://openweathermap
 
 To run the app click link below:
 
-https://netlify-covid-app.netlify.app
+https://bartek-weather-app.netlify.app
