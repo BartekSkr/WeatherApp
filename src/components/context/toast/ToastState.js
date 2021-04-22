@@ -23,7 +23,8 @@ export const ToastState = ({ children }) => {
               onClick={() => {
                 setVisible('hide')
                 setShowToast(false)
-              }} />
+              }}
+            />
             <p className='toastMessage'>{toast}</p>
           </div>
         ))}
