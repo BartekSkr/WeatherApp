@@ -1,24 +1,14 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonthNumber, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
-
-import ToastContext from '../context/toast/toastContext'
 
 export const Daily = () => {
   const weatherContext = useContext(WeatherContext)
   const { weatherData, display } = weatherContext
 
-  const toastContext = useContext(ToastContext)
-  const { addToast } = toastContext
-
   const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
   const [isVisible, setIsVisible] = useState('')
   const [chosenDay, setChosenDay] = useState('')
-
-  useEffect(() => {
-    addToast('Click on a specific day in "Daily" field to see weather details')
-    // eslint-disable-next-line
-  }, [])
 
   const handleOnClick = dailyDetails => {
     return function () {
@@ -29,12 +19,12 @@ export const Daily = () => {
   }
 
   return (
-    <Fragment >
+    <Fragment>
       {display === true &&
         <Fragment>
           <div className='dailyWeather'>
           <h2>Daily</h2>
-            <div className='scrollDiv' value={weatherData}>
+            <div className='scrollDiv'>
               {weatherData.daily?.slice(1).map(daily => (
                 <div className={chosenDay === daily.dt ? 'scrollBoxClicked' : 'scrollBox'} id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
                   <h5>{currentDay(daily.dt)}.{currentMonthNumber(daily.dt)}</h5>

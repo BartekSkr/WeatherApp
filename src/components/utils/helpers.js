@@ -68,3 +68,6 @@ export const currentMinutes = unixDate => {
 export const onlyCityName = cityName => {
   return cityName?.includes('Voivodeship') ? cityName.replace('Voivodeship', '').slice(0, -1) : cityName
 }
+
+//  random key for toast
+export const randomKeyNumber = () => Math.round(Math.random(1, 1000000) * 1000000)

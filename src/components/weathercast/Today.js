@@ -2,9 +2,14 @@ import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 
+import ToastContext from '../context/toast/toastContext'
+
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
   const { weatherData, location, display, locationError, cityNameError } = weatherContext
+
+  const toastContext = useContext(ToastContext)
+  const { addToast, showToast } = toastContext
 
   return (
     <Fragment>
@@ -19,7 +24,11 @@ export const Today = () => {
         </div>
       }
       {display === true &&
-        <div className='todayWeather'>
+        <div className='todayWeather'
+        //  shows a toast message when the component is loaded
+          onLoad={() => {
+            if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details')
+        }}>
           <div className='location'>
             <h1>{onlyCityName(location.name)}, {location.sys?.country}</h1>
             <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
