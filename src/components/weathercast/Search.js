@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import ReactTooltip from 'react-tooltip'
-import WeatherContext from '../context/weatherContext'
+import WeatherContext from '../context/weather/weatherContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 

@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react'
 import { currentDay, currentMonthNumber, currentHour } from '../utils/helpers'
-import WeatherContext from '../context/weatherContext'
+import WeatherContext from '../context/weather/weatherContext'
 
 export const Hourly = () => {
   const weatherContext = useContext(WeatherContext)

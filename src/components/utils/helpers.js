@@ -64,6 +64,7 @@ export const currentMinutes = unixDate => {
   return minutes.getMinutes()
 }
 
+//  cutting off the word 'voivodeship' from the name of the city
 export const onlyCityName = cityName => {
   return cityName?.includes('Voivodeship') ? cityName.replace('Voivodeship', '').slice(0, -1) : cityName
 }

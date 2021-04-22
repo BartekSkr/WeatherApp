@@ -36,7 +36,6 @@ export const WeatherState = ({ children }) => {
         })
         .catch(err => {
           console.log(err)
-          // window.alert(`Please enter correct city name`)
           if (err) {
             setCityNameError(true)
             setLocationError(false)
@@ -67,7 +66,6 @@ export const WeatherState = ({ children }) => {
           .catch(err => console.log(err))
       },
       function (error) {
-        // if (error.code === 1) window.alert('Please enable geolocation in the browser!')
         if (error.code === 1) {
           setLocationError(true)
           setCityNameError(false)

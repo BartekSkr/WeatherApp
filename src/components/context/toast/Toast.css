@@ -1,5 +1,4 @@
-.toastDailyInfo,
-.toastLocationInfo {
+.dailyInfo {
   background-color: rgba(252, 173, 26);
   box-sizing: border-box;
   width: 350px;
@@ -8,33 +7,16 @@
   border-radius: 10px;
   z-index: 10;
   position: fixed;
-  transition: transform 0.6s ease-in-out;
-  animation: toast-in-right 0.7s;
-}
-
-.toastDailyInfo {
-  top: 9.5rem;
-  right: 0.5rem;
-}
-
-.toastLocationInfo {
   top: 4rem;
   right: 0.5rem;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right 0.7s;
 }
 
 .check-icon {
   cursor: pointer;
   position: relative;
-  /* top: 0.6rem; */
-  margin-right: 0.9rem;
-}
-
-.daily {
-  top: 1.4rem;
-}
-
-.info {
-  top: 0.6rem;
+  margin: auto 0.9rem auto auto;
 }
 
 .check-icon:hover {
@@ -62,9 +44,9 @@
 
 /* phone screens */
 @media (max-width: 450px) {
-  .toastDailyInfo,
-  .toastLocationInfo {
+  .dailyInfo {
     width: 300px;
+    top: 0.8rem;
   }
 
   .toastMessage {
@@ -74,13 +56,5 @@
   .check-icon {
     width: 25px;
     height: 25px;
-  }
-
-  .info {
-    top: 0.8rem;
-  }
-
-  .daily {
-    top: 1.6rem;
   }
 }

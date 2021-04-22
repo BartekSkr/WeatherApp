@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from '../utils/helpers'
-import WeatherContext from '../context/weatherContext'
+import WeatherContext from '../context/weather/weatherContext'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
@@ -55,16 +55,6 @@ export const Today = () => {
           </div>
         </div>
       }
-      {/* {locationError === true &&
-        <div className='errorInfo'>
-          <p>Please enable geolocation or enter a city name.</p>
-        </div>
-      }
-      {cityNameError === true &&
-        <div className='errorInfo'>
-          <p>Please enter valid city name</p>
-        </div>
-      } */}
     </Fragment>
   )
 }
