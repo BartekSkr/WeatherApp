@@ -1,4 +1,4 @@
-.dailyInfo {
+.daily-info {
   background-color: rgba(252, 173, 26);
   box-sizing: border-box;
   width: 350px;
@@ -11,6 +11,8 @@
   right: 0.5rem;
   transition: transform 0.6s ease-in-out;
   animation: toast-in-right 0.7s;
+
+  margin-bottom: 1rem;
 }
 
 .check-icon {
@@ -24,7 +26,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.toastMessage {
+.toast-message {
   font-size: 1.1rem;
   text-align: left;
 }
@@ -49,7 +51,7 @@
     top: 0.8rem;
   }
 
-  .toastMessage {
+  .toast-message {
     font-size: 0.9rem;
   }
 

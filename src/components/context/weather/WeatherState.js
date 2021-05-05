@@ -73,25 +73,6 @@ export const WeatherState = ({ children }) => {
         }
       }
     )
-
-
-    // navigator.geolocation.getCurrentPosition(position => {
-    //   let locationApi = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-    //   let weatherDataApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_KEY}`
-
-    //   axios.all([
-    //     axios.get(locationApi),
-    //     axios.get(weatherDataApi)
-    //   ])
-    //     .then(res => {
-    //       setLocation(res[0].data)
-    //       setWeatherData(res[1].data)
-    //       setDisplay(true)
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     })
-    // })
   }
 
   return (

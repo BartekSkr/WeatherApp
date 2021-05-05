@@ -9,11 +9,11 @@ export const Hourly = () => {
   return (
     <Fragment>
       {display === true &&
-        <div className='hourlyWeather'>
+        <div className='hourly-weather'>
           <h2>Hourly</h2>
-          <div className='scrollDiv' value={weatherData}>
+          <div className='scroll-div' value={weatherData}>
             {weatherData.hourly?.slice(1, 26).map(hourly => (
-              <div className='scrollBox' key={hourly.dt}>
+              <div className='scroll-box' key={hourly.dt}>
                 <h5>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</h5>
                 <h4>{currentHour(hourly.dt)}:00</h4>
                 <img src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`} alt='weather icon' />

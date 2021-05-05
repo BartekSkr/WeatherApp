@@ -6,26 +6,29 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { randomKeyNumber } from '../../utils/helpers'
 
 export const ToastState = ({ children }) => {
-  const [toasts, setToasts] = useState([])
   const [visible, setVisible] = useState('')
   const [showToast, setShowToast] = useState(true)
 
-  const addToast = toast => {
-    setToasts(toasts => [...toasts, toast])
+  const [msg, setMsg] = useState([])
+  const [type, setType] = useState([])
+
+  const addToast = (msgs, types) => {
+    setMsg(msg => [...msg, msgs])
+    setType(type => [...type, types])
   }
 
   return (
-    <ToastContext.Provider value={{ addToast, showToast }}>
+    <ToastContext.Provider value={{ addToast, showToast, type }}>
       {children}
-        {toasts.map(toast => (
-          <div className={`dailyInfo ${visible}`} key={randomKeyNumber}>
+        {msg.map(msgs => (
+          <div className={`${type} ${visible}`} key={randomKeyNumber}>
             <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon'
               onClick={() => {
                 setVisible('hide')
                 setShowToast(false)
               }}
             />
-            <p className='toastMessage'>{toast}</p>
+            <p className='toast-message'>{msgs}</p>
           </div>
         ))}
     </ToastContext.Provider>

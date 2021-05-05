@@ -22,11 +22,11 @@ export const Daily = () => {
     <Fragment>
       {display === true &&
         <Fragment>
-          <div className='dailyWeather'>
+          <div className='daily-weather'>
           <h2>Daily</h2>
-            <div className='scrollDiv'>
+            <div className='scroll-div'>
               {weatherData.daily?.slice(1).map(daily => (
-                <div className={chosenDay === daily.dt ? 'scrollBoxClicked' : 'scrollBox'} id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
+                <div className={chosenDay === daily.dt ? 'scroll-box-clicked' : 'scroll-box'} id='scrollBoxId' key={daily.dt} onClick={handleOnClick(daily)}>
                   <h5>{currentDay(daily.dt)}.{currentMonthNumber(daily.dt)}</h5>
                   <h6>{currentDayName(daily.dt)}</h6>
                   <img src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}alt='weather icon' />
@@ -35,7 +35,7 @@ export const Daily = () => {
               ))}
             </div>
           </div>
-          <div className={`dailyDetails ${isVisible}`}>
+          <div className={`daily-details ${isVisible}`}>
             <div>
               <h4>{Math.round(dailyDetailsWeather.temp?.max)}°</h4>
               <p>Max temp</p>
