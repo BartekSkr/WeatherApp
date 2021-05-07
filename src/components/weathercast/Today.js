@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react'
-import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection } from '../utils/helpers'
+import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 import ToastContext from '../context/toast/toastContext'
 
@@ -47,7 +47,7 @@ export const Today = () => {
                 <span>Humidity</span>
               </div>
               <div>
-                <h4>{Math.round(weatherData.current?.wind_speed)} km/h</h4>
+                <h4>{Math.round(windSpeedToKm(weatherData.current?.wind_speed))} km/h</h4>
                 <p>Wind</p>
                 <h4>{windDirection(weatherData.current?.wind_deg)}</h4>
                 <span>Direction</span>
