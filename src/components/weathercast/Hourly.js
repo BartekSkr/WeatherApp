@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react'
-import { currentDay, currentMonthNumber, currentHour } from '../utils/helpers'
+import { currentDay, currentMonthNumber, currentHour, windSpeedToKm, windDirection } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 
 export const Hourly = () => {
@@ -17,6 +17,8 @@ export const Hourly = () => {
                 <h5>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</h5>
                 <h4>{currentHour(hourly.dt)}:00</h4>
                 <img src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`} alt='weather icon' />
+                <h5>{Math.round(windSpeedToKm(hourly.wind_speed))} km/h</h5>
+                <h5>{windDirection(hourly.wind_deg)}</h5>
                 <h3>{Math.round(hourly.temp)}°</h3>
               </div>
             ))}
