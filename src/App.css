@@ -180,6 +180,7 @@ h1 {
   margin-bottom: 0.5rem;
   padding: 0.5rem 0;
   text-align: center;
+  transition: 0.15s;
 }
 
 .scroll-box {
@@ -189,6 +190,7 @@ h1 {
 /* click scroll-box */
 .scroll-box-clicked {
   background-color: rgba(241, 240, 240, 0.5);
+  transform: scale(0.97);
 }
 
 #scrollBoxId {
