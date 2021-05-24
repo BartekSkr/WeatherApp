@@ -175,7 +175,7 @@ h1 {
 .scroll-box,
 .scroll-box-clicked {
   border-radius: 10px;
-  min-width: 5.5rem;
+  min-width: 6.5rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0;
@@ -224,7 +224,7 @@ h1 {
 }
 
 /* Layout on larger screens */
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .container {
     padding: 1rem 8rem 0 8rem;
   }
@@ -261,7 +261,14 @@ h1 {
     margin: 2rem 0 1rem 0;
   }
 
+  .scroll-box,
+  .scroll-box-clicked {
+    flex: 1;
+  }
+
   .daily-details {
+    min-width: 400px;
     max-width: 50%;
+    margin: auto;
   }
 }
