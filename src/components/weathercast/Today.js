@@ -23,7 +23,7 @@ export const Today = () => {
       }
       {display === true &&
         <div className='today-weather'
-        //  shows a toast message when the component is loaded
+        //  shows a toast message after component load
           onLoad={() => {
             if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details', 'daily-info')
         }}>

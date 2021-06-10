@@ -21,7 +21,7 @@ export const Search = () => {
         onClick={handleUserLocation}>
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />
       </button>
-      {/* Tooltip for location button */}
+      {/* Tooltip for the location button */}
       <ReactTooltip id='locationBtn' place='left' effect='solid' >
         Show weather in your location
       </ReactTooltip>

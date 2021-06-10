@@ -10,7 +10,7 @@ export const windDirection = wind => {
   if (wind > 280 && wind < 350) return 'NW ↘'
 }
 
-//  day name
+//  name of the day
 export const currentDayName = unixDate => {
   let day = new Date(unixDate * 1000)
   if (day.getDay() === 0) return 'Sunday'
@@ -27,7 +27,7 @@ export const currentDay = unixDate => {
   return new Date(unixDate * 1000).getDate()
 }
 
-//  month number
+//  number of the month
 export const currentMonthNumber = unixDate => {
   let month = new Date(unixDate * 1000)
   return month.getMonth().toString().length === 1
@@ -35,7 +35,7 @@ export const currentMonthNumber = unixDate => {
     : month.getMonth() + 1
 }
 
-//  month
+//  name of the month
 export const currentMonth = unixDate => {
   let month = new Date(unixDate * 1000)
   if (month.getMonth() === 0) return 'January'
@@ -67,7 +67,7 @@ export const currentMinutes = unixDate => {
 //  convert m/s to km/h
 export const windSpeedToKm = mps => mps * 3.6
 
-//  cutting off the word 'voivodeship' from the name of the city
+//  removing 'voivodeship' from city name
 export const onlyCityName = cityName => {
   return cityName?.includes('Voivodeship') ? cityName.replace('Voivodeship', '').slice(0, -1) : cityName
 }
