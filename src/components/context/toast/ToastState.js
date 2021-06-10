@@ -3,7 +3,6 @@ import './Toast.css'
 import ToastContext from './toastContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-import { randomKeyNumber } from '../../utils/helpers'
 
 export const ToastState = ({ children }) => {
   const [visible, setVisible] = useState('')
@@ -21,7 +20,7 @@ export const ToastState = ({ children }) => {
     <ToastContext.Provider value={{ addToast, showToast, type }}>
       {children}
         {msg.map(msgs => (
-          <div className={`${type} ${visible}`} key={randomKeyNumber}>
+          <div className={`${type} ${visible}`} key={Math.round(Math.random(1, 1000000) * 1000000)}>
             <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon'
               onClick={() => {
                 setVisible('hide')
