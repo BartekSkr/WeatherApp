@@ -2,10 +2,11 @@ import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 import ToastContext from '../context/toast/toastContext'
+import { Alert } from './Alert'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
-  const { weatherData, location, display, locationError, cityNameError } = weatherContext
+  const { weatherData, location, display, locationError, cityNameError, alerts } = weatherContext
   const toastContext = useContext(ToastContext)
   const { addToast, showToast } = toastContext
 
@@ -25,8 +26,9 @@ export const Today = () => {
         <div className='today-weather'
         //  shows a toast message after component load
           onLoad={() => {
-            if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details', 'daily-info')
-        }}>
+            if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details')
+          }}
+        >
           <div className='location'>
             <h1>{onlyCityName(location.name)}, {location.sys?.country}</h1>
             <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
@@ -39,6 +41,13 @@ export const Today = () => {
                 <span>{weatherData.current?.weather[0].description}</span>
               </span>
             </div>
+              {/* =================== */}
+              <div>
+              {alerts.length > 0 &&
+                <Alert />
+                }
+              </div>
+              {/* =================== */}
             <div className='today-data'>
               <div>
                 <h4>{Math.round(weatherData.current?.feels_like)}°</h4>

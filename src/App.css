@@ -3,6 +3,8 @@
 :root {
   --div-background-color: rgba(241, 240, 240, 0.2);
   --scrollbar-thumb: rgba(177, 177, 177, 0.4);
+  --margin-bottom: 1rem;
+  --border-radius: 10px;
 }
 
 * {
@@ -27,7 +29,7 @@ body {
   text-align: center;
   padding-top: 0.5rem;
   user-select: none;
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-bottom);
 }
 
 /* Search input */
@@ -86,7 +88,7 @@ body {
 .location,
 .today-temp {
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-bottom);
 }
 
 .today-temp {
@@ -94,7 +96,7 @@ body {
 }
 
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-bottom);
 }
 
 .today-icon {
@@ -118,7 +120,7 @@ h1 {
   justify-content: space-between;
   padding: 1rem;
   background-color: var(--div-background-color);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
 }
 
 .error-info {
@@ -135,7 +137,7 @@ h1 {
 
 .today-data p,
 .daily-details p {
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-bottom);
 }
 
 .today-data :is(h4, span, p),
@@ -152,6 +154,15 @@ h1 {
   display: flex;
 }
 
+/* Alert */
+.alert-info {
+  border-radius: calc(var(--border-radius) - 2px);
+  margin-bottom: var(--margin-bottom);
+  background-color: orange;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
 /* Hourly & daily weather*/
 .hourly-weather,
 .daily-weather {
@@ -160,7 +171,7 @@ h1 {
 }
 
 :is(.hourly-weather, .daily-weather) h2 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-bottom);
 }
 
 .scroll-div {
@@ -174,7 +185,7 @@ h1 {
 
 .scroll-box,
 .scroll-box-clicked {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   min-width: 6.5rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;

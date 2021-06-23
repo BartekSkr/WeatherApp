@@ -18,7 +18,7 @@ function App() {
             <Daily />
           </div>
         </div>
-     </WeatherState>
+      </WeatherState>
     </ToastState>
   );
 }

@@ -8,6 +8,8 @@ export const WeatherState = ({ children }) => {
   const [display, setDisplay] = useState(false)
   const [locationError, setLocationError] = useState(false)
   const [cityNameError, setCityNameError] = useState(false)
+  //==================
+  const [alerts, setAlert] = useState([])
 
   useEffect(() => {
     handleUserLocation()
@@ -29,6 +31,14 @@ export const WeatherState = ({ children }) => {
               setDisplay(true)
               setLocationError(false)
               setCityNameError(false)
+
+              if (res[1].data.alerts) {
+                setAlert(res[1].data.alerts)
+                console.log('alerts for searched city: ', res[1].data.alerts)
+              } else {
+                setAlert([])
+                console.log('there is no alerts')
+              }
             })
             .catch(err => {
               console.log(err)
@@ -62,6 +72,15 @@ export const WeatherState = ({ children }) => {
         setDisplay(true)
         setLocationError(false)
         setCityNameError(false)
+
+        // console.log(res[1].data)
+        if (res[1].data.alerts) {
+          setAlert(res[1].data.alerts)
+          console.log('user location alerts: ', res[1].data.alerts)
+        } else {
+          setAlert([])
+          console.log('there is no alerts')
+        }
       })
       .catch(err => console.log(err))
   }
@@ -75,7 +94,7 @@ export const WeatherState = ({ children }) => {
   }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location, display, locationError, cityNameError, handleSearchCity, handleUserLocation }}>
+    <WeatherContext.Provider value={{ weatherData, location, display, locationError, cityNameError, alerts,handleSearchCity, handleUserLocation }}>
       {children}
     </WeatherContext.Provider>
   )

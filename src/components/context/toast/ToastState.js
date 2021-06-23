@@ -9,18 +9,16 @@ export const ToastState = ({ children }) => {
   const [showToast, setShowToast] = useState(true)
 
   const [msg, setMsg] = useState([])
-  const [type, setType] = useState([])
 
-  const addToast = (msgs, types) => {
+  const addToast = (msgs) => {
     setMsg(msg => [...msg, msgs])
-    setType(type => [...type, types])
   }
 
   return (
-    <ToastContext.Provider value={{ addToast, showToast, type }}>
+    <ToastContext.Provider value={{ addToast, showToast }}>
       {children}
         {msg.map(msgs => (
-          <div className={`${type} ${visible}`} key={Math.round(Math.random(1, 1000000) * 1000000)}>
+          <div className={`daily-info ${visible}`} key={Math.round(Math.random(1, 1000000) * 1000000)}>
             <FontAwesomeIcon icon={faCheckCircle} size='2x' className='check-icon'
               onClick={() => {
                 setVisible('hide')

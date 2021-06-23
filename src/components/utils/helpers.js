@@ -71,3 +71,9 @@ export const windSpeedToKm = mps => mps * 3.6
 export const onlyCityName = cityName => {
   return cityName?.includes('Voivodeship') ? cityName.replace('Voivodeship', '').slice(0, -1) : cityName
 }
+
+//  alerts info number
+export const alertsNumber = number => {
+  if (number === 1) return
+  if (number > 1) return `+${number - 1}`
+}
