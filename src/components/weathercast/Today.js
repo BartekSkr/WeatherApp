@@ -2,10 +2,11 @@ import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 import ToastContext from '../context/toast/toastContext'
+import { Alert } from './Alert'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)
-  const { weatherData, location, display, locationError, cityNameError } = weatherContext
+  const { weatherData, location, display, locationError, cityNameError, alerts } = weatherContext
   const toastContext = useContext(ToastContext)
   const { addToast, showToast } = toastContext
 
@@ -25,19 +26,24 @@ export const Today = () => {
         <div className='today-weather'
         //  shows a toast message after component load
           onLoad={() => {
-            if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details', 'daily-info')
-        }}>
+            if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details')
+          }}
+        >
           <div className='location'>
             <h1>{onlyCityName(location.name)}, {location.sys?.country}</h1>
             <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
           </div>
           <div className='main-data'>
-            <div className='today-temp'>
-              <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='today-icon' alt='weather icon' />
-              <span className='temp-desc'>
-                <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
-                <span>{weatherData.current?.weather[0].description}</span>
-              </span>
+            <div className='today-container'>
+              <div className='today-temp'>
+                <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='today-icon' alt='weather icon' />
+                <span className='temp-desc'>
+                  <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
+                  <span>{weatherData.current?.weather[0].description}</span>
+                </span>
+              </div>
+              {/* alert info (if there are any alerts) */}
+              {alerts.length > 0 && <Alert />}
             </div>
             <div className='today-data'>
               <div>
