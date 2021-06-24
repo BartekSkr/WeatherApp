@@ -75,5 +75,5 @@ export const onlyCityName = cityName => {
 //  alerts info number
 export const alertsNumber = number => {
   if (number === 1) return
-  if (number > 1) return `+${number - 1}`
+  if (number > 1) return `(+${number - 1})`
 }
