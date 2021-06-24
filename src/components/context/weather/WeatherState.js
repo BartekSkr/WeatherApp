@@ -34,10 +34,8 @@ export const WeatherState = ({ children }) => {
 
               if (res[1].data.alerts) {
                 setAlert(res[1].data.alerts)
-                console.log('alerts for searched city: ', res[1].data.alerts)
               } else {
                 setAlert([])
-                console.log('there is no alerts')
               }
             })
             .catch(err => {
@@ -76,10 +74,8 @@ export const WeatherState = ({ children }) => {
         // console.log(res[1].data)
         if (res[1].data.alerts) {
           setAlert(res[1].data.alerts)
-          console.log('user location alerts: ', res[1].data.alerts)
         } else {
           setAlert([])
-          console.log('there is no alerts')
         }
       })
       .catch(err => console.log(err))

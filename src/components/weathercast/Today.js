@@ -34,20 +34,17 @@ export const Today = () => {
             <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
           </div>
           <div className='main-data'>
-            <div className='today-temp'>
-              <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='today-icon' alt='weather icon' />
-              <span className='temp-desc'>
-                <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
-                <span>{weatherData.current?.weather[0].description}</span>
-              </span>
-            </div>
-              {/* =================== */}
-              <div>
-              {alerts.length > 0 &&
-                <Alert />
-                }
+            <div className='today-container'>
+              <div className='today-temp'>
+                <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='today-icon' alt='weather icon' />
+                <span className='temp-desc'>
+                  <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
+                  <span>{weatherData.current?.weather[0].description}</span>
+                </span>
               </div>
-              {/* =================== */}
+              {/* alert info (if there are any alerts) */}
+              {alerts.length > 0 && <Alert />}
+            </div>
             <div className='today-data'>
               <div>
                 <h4>{Math.round(weatherData.current?.feels_like)}°</h4>

@@ -1,15 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, Fragment, useState } from 'react'
 import WeatherContext from '../context/weather/weatherContext'
 import { alertsNumber } from '../utils/helpers'
+import { AlertPopUp } from './AlertPopUp'
 
 export const Alert = () => {
   const weatherContext = useContext(WeatherContext)
   const { alerts } = weatherContext
+  const [popUpDisplay, setPopUpDisplay] = useState(false)
 
   return (
-    <div className='alert-info'>
-      {/* <p>{alerts[0]?.event} +{alerts.length}</p> */}
-      <p>{alerts[0]?.event} {alertsNumber(alerts.length)}</p>
-    </div>
+    <Fragment>
+      <div className='alert-info' onClick={() => setPopUpDisplay(true)}>
+        <p>{alerts[0]?.event} {alertsNumber(alerts.length)}</p>
+      </div>
+        <AlertPopUp trigger={popUpDisplay} setTrigger={setPopUpDisplay} />
+    </Fragment>
   )
 }
