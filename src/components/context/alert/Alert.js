@@ -1,6 +1,7 @@
 import React, { useContext, Fragment, useState } from 'react'
-import WeatherContext from '../context/weather/weatherContext'
-import { alertsNumber } from '../utils/helpers'
+import './Alert.css'
+import WeatherContext from '../weather/weatherContext'
+import { alertsNumber } from '../../utils/helpers'
 import { AlertPopUp } from './AlertPopUp'
 
 export const Alert = () => {

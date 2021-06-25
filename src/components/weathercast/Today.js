@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from 'react'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 import ToastContext from '../context/toast/toastContext'
-import { Alert } from './Alert'
+import { Alert } from '../context/alert/Alert'
 
 export const Today = () => {
   const weatherContext = useContext(WeatherContext)

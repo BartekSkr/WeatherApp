@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
+import './Alert.css'
 import { v4 as uuidv4 } from 'uuid'
-import WeatherContext from '../context/weather/weatherContext'
-import { currentDay, currentHour, currentMinutes, currentMonth, onlyCityName } from '../utils/helpers'
+import WeatherContext from '../weather/weatherContext'
+import { currentDay, currentHour, currentMinutes, currentMonth, onlyCityName } from '../../utils/helpers'
 
 export const AlertPopUp = ({ trigger, setTrigger }) => {
   const weatherContext = useContext(WeatherContext)
