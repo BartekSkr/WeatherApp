@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+#icon-info {
+  margin-right: 0.7rem;
+}
+
 .alert-popup {
   position: fixed;
   top: 0;
@@ -28,6 +32,7 @@
   background-color: orange;
   text-align: left;
   overflow: auto;
+  box-shadow: 5px 5px 15px 5px rgb(87, 86, 86);
   /* Firefox scrollbar style */
   scrollbar-color: var(--scrollbar-thumb) var(--div-background-color);
   scrollbar-width: thin;
@@ -35,6 +40,14 @@
 
 .alert-popup-inner h2 {
   border-bottom: 1px solid whitesmoke;
+}
+
+.alert-popup-inner h4 {
+  text-decoration: underline;
+}
+
+.alert-popup-inner :is(h6, h5) {
+  color: rgb(230, 215, 215);
 }
 
 .alert-popup-info {
@@ -46,7 +59,7 @@
 }
 
 .alert-popup-inner :is(h5, p) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 #popup-button {
