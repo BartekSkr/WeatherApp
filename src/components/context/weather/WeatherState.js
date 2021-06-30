@@ -8,7 +8,6 @@ export const WeatherState = ({ children }) => {
   const [display, setDisplay] = useState(false)
   const [locationError, setLocationError] = useState(false)
   const [cityNameError, setCityNameError] = useState(false)
-  //==================
   const [alerts, setAlert] = useState([])
 
   useEffect(() => {
