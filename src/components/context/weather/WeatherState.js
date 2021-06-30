@@ -9,6 +9,9 @@ export const WeatherState = ({ children }) => {
   const [locationError, setLocationError] = useState(false)
   const [cityNameError, setCityNameError] = useState(false)
   const [alerts, setAlert] = useState([])
+  //  daily & daily details
+  const [chosenDay, setChosenDay] = useState('')
+  const [isVisible, setIsVisible] = useState('')
 
   useEffect(() => {
     handleUserLocation()
@@ -30,6 +33,8 @@ export const WeatherState = ({ children }) => {
               setDisplay(true)
               setLocationError(false)
               setCityNameError(false)
+              setIsVisible('')
+              setChosenDay('')
 
               if (res[1].data.alerts) {
                 setAlert(res[1].data.alerts)
@@ -69,6 +74,8 @@ export const WeatherState = ({ children }) => {
         setDisplay(true)
         setLocationError(false)
         setCityNameError(false)
+        setIsVisible('')
+        setChosenDay('')
 
         // console.log(res[1].data)
         if (res[1].data.alerts) {
@@ -89,7 +96,7 @@ export const WeatherState = ({ children }) => {
   }
 
   return (
-    <WeatherContext.Provider value={{ weatherData, location, display, locationError, cityNameError, alerts,handleSearchCity, handleUserLocation }}>
+    <WeatherContext.Provider value={{ weatherData, location, display, locationError, cityNameError, alerts,handleSearchCity, handleUserLocation, isVisible, setIsVisible, chosenDay, setChosenDay }}>
       {children}
     </WeatherContext.Provider>
   )

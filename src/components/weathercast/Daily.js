@@ -4,11 +4,9 @@ import WeatherContext from '../context/weather/weatherContext'
 
 export const Daily = () => {
   const weatherContext = useContext(WeatherContext)
-  const { weatherData, display } = weatherContext
+  const { weatherData, display, isVisible, setIsVisible, chosenDay, setChosenDay } = weatherContext
 
   const [dailyDetailsWeather, setDailyDetailsWeather] = useState([])
-  const [isVisible, setIsVisible] = useState('')
-  const [chosenDay, setChosenDay] = useState('')
 
   const handleOnClick = dailyDetails => {
     return function () {
