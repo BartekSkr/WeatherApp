@@ -36,6 +36,7 @@
   /* Firefox scrollbar style */
   scrollbar-color: var(--scrollbar-thumb) var(--div-background-color);
   scrollbar-width: thin;
+  animation: alert-popup-in 0.25s;
 }
 
 .alert-popup-inner h2 {
@@ -90,4 +91,41 @@
 
 .alert-popup-inner::-webkit-scrollbar-thumb:hover {
   background-color: rgba(177, 177, 177, 0.6);
+}
+
+/* animations */
+@keyframes alert-popup-in {
+  0% {
+    transform: scale(0);
+  }
+  10% {
+    transform: scale(0.1);
+  }
+  20% {
+    transform: scale(0.2);
+  }
+  30% {
+    transform: scale(0.3);
+  }
+  40% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  60% {
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(0.7);
+  }
+  80% {
+    transform: scale(0.8);
+  }
+  90% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
