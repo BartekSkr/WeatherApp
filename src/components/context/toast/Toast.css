@@ -34,6 +34,24 @@
   transform: translateX(110%);
 }
 
+/* phone screens */
+@media (max-width: 450px) {
+  .dailyInfo {
+    width: 300px;
+    top: 0.8rem;
+  }
+
+  .toast-message {
+    font-size: 0.9rem;
+  }
+
+  .check-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* animations */
 @keyframes toast-in-right {
   from {
     transform: translateX(100%);
@@ -49,22 +67,5 @@
   }
   to {
     transform: translateX(110%);
-  }
-}
-
-/* phone screens */
-@media (max-width: 450px) {
-  .dailyInfo {
-    width: 300px;
-    top: 0.8rem;
-  }
-
-  .toast-message {
-    font-size: 0.9rem;
-  }
-
-  .check-icon {
-    width: 25px;
-    height: 25px;
   }
 }
