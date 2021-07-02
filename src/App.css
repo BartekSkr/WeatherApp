@@ -5,6 +5,7 @@
   --scrollbar-thumb: rgba(177, 177, 177, 0.4);
   --margin-bottom: 1rem;
   --border-radius: 10px;
+  --animation-time: 0.4s;
 }
 
 * {
@@ -83,6 +84,8 @@ body {
 /* Today's weather */
 .today-weather {
   padding: 1rem;
+  animation: components-animation var(--animation-time);
+  animation-delay: -0.35s;
 }
 
 .location,
@@ -128,6 +131,7 @@ h1 {
   width: 80%;
   margin: 4rem auto;
   justify-content: center;
+  animation: components-animation 0.3s;
 }
 
 .today-data div,
@@ -152,7 +156,6 @@ h1 {
 
 .visible {
   display: flex;
-  /* animation: daily-details-in 0.25s; */
   animation: daily-details-in 0.3s;
 }
 
@@ -161,6 +164,15 @@ h1 {
 .daily-weather {
   padding: 0 1rem 1rem 1rem;
   text-align: left;
+  animation: components-animation var(--animation-time);
+}
+
+.hourly-weather {
+  animation-delay: -0.25s;
+}
+
+.daily-weather {
+  animation-delay: -0.15s;
 }
 
 :is(.hourly-weather, .daily-weather) h2 {
@@ -290,6 +302,15 @@ h1 {
 }
 
 /* animations */
+@keyframes components-animation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes daily-details-in {
   0% {
     opacity: 0;
