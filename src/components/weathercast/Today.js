@@ -24,7 +24,7 @@ export const Today = () => {
       }
       {display === true &&
         <div className='today-weather'
-        //  shows a toast message after component load
+          //  shows a toast message after component load
           onLoad={() => {
             if(showToast===true) addToast('Click on a specific day in "Daily" field to see weather details')
           }}
@@ -36,7 +36,10 @@ export const Today = () => {
           <div className='main-data'>
             <div className='today-container'>
               <div className='today-temp'>
-                <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}@2x.png`} className='today-icon' alt='weather icon' />
+                <img
+                  src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}@2x.png`} className='today-icon'
+                  alt='weather icon'
+                />
                 <span className='temp-desc'>
                   <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
                   <span>{weatherData.current?.weather[0].description}</span>

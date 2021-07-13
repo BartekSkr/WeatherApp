@@ -13,12 +13,19 @@ export const Search = () => {
       <button id='searchButton'>
         <FontAwesomeIcon icon={faSearch} id='searchIcon' />
       </button>
-      <input type="text" name='text' className='search-input' placeholder='Search city...'
+      <input
+        type="text"
+        name='text'
+        className='search-input'
+        placeholder='Search city...'
         onClick={(e) => e.target.value = ''}
         onKeyUp={handleSearchCity}
       />
-      <button data-tip data-for='locationBtn' id='locationButton'
-        onClick={handleUserLocation}>
+      <button
+        data-tip data-for='locationBtn'
+        id='locationButton'
+        onClick={handleUserLocation}
+      >
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />
       </button>
       {/* Tooltip for the location button */}
