@@ -36,7 +36,7 @@ export const Today = () => {
           <div className='main-data'>
             <div className='today-container'>
               <div className='today-temp'>
-                <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}.png`} className='today-icon' alt='weather icon' />
+                <img src={`https://openweathermap.org/img/wn/${weatherData.current?.weather[0].icon}@2x.png`} className='today-icon' alt='weather icon' />
                 <span className='temp-desc'>
                   <span id='todayTemp'>{Math.round(weatherData.current?.temp)}°</span>
                   <span>{weatherData.current?.weather[0].description}</span>
