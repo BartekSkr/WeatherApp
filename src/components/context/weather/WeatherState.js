@@ -77,7 +77,6 @@ export const WeatherState = ({ children }) => {
         setIsVisible('')
         setChosenDay('')
 
-        // console.log(res[1].data)
         if (res[1].data.alerts) {
           setAlert(res[1].data.alerts)
         } else {
