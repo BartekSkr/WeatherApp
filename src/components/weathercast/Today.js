@@ -31,7 +31,8 @@ export const Today = () => {
         >
           <div className='location'>
             <h1>{onlyCityName(location.name)}, {location.sys?.country}</h1>
-            <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p>
+            {/* <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt)}</p> */}
+          <p>{currentDayName(weatherData.current?.dt)}, {currentMonth(weatherData.current?.dt)} {currentDay(weatherData.current?.dt, weatherData.timezone_offset)}, {currentHour(weatherData.current.dt, weatherData.timezone_offset)}:{currentMinutes(weatherData.current.dt)}</p>
           </div>
           <div className='main-data'>
             <div className='today-container'>

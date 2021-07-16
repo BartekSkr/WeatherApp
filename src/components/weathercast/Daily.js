@@ -30,7 +30,7 @@ export const Daily = () => {
                   key={daily.dt}
                   onClick={handleOnClick(daily)}
                 >
-                  <h5>{currentDay(daily.dt)}.{currentMonthNumber(daily.dt)}</h5>
+                  <h5>{currentDay(daily.dt, weatherData.timezone_offset)}.{currentMonthNumber(daily.dt)}</h5>
                   <h6>{currentDayName(daily.dt)}</h6>
                   <img
                     src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}

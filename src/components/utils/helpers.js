@@ -23,8 +23,9 @@ export const currentDayName = unixDate => {
 }
 
 //  day
-export const currentDay = unixDate => {
-  return new Date(unixDate * 1000).getDate()
+export const currentDay = (unixDate, timezone) => {
+  // return new Date(unixDate * 1000).getDate()
+  return new Date((unixDate - 7200 + timezone) * 1000).getDate()
 }
 
 //  number of the month
@@ -53,8 +54,16 @@ export const currentMonth = unixDate => {
 }
 
 //  hour
-export const currentHour = unixDate => {
-  return new Date(unixDate * 1000).getHours()
+// export const currentHour = unixDate => {
+//   return new Date(unixDate * 1000).getHours()
+// }
+
+export const currentHour = (unixDate, timezone) => {
+  // return new Date((unixDate + timezone) * 1000).getHours() - 2
+  let hour = new Date((unixDate - 7200 + timezone) * 1000).getHours()
+  // if (hour >=22) return hour
+  // return hour - 2
+  return hour
 }
 
 //  minutes
