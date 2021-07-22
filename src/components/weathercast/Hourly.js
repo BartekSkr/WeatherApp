@@ -14,9 +14,7 @@ export const Hourly = () => {
           <div className='scroll-div' value={weatherData}>
             {weatherData.hourly?.slice(1, 26).map(hourly => (
               <div className='scroll-box' key={hourly.dt}>
-                {/* <h5>{currentDay(hourly.dt)}.{currentMonthNumber(hourly.dt)}</h5> */}
                 <h5>{currentDay(hourly.dt, weatherData.timezone_offset)}.{currentMonthNumber(hourly.dt)}</h5>
-                {/* <h4>{currentHour(hourly.dt, 0)}:00</h4> */}
                 <h4>{currentHour(hourly.dt, weatherData.timezone_offset)}:00</h4>
                 <img
                   src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`}
