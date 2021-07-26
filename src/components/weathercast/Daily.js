@@ -55,9 +55,9 @@ export const Daily = () => {
               <span>Direction</span>
             </div>
             <div>
-              <h4>{currentHour(dailyDetailsWeather.sunrise)}:{currentMinutes(dailyDetailsWeather.sunrise)}</h4>
+              <h4>{currentHour(dailyDetailsWeather.sunrise, weatherData.timezone_offset)}:{currentMinutes(dailyDetailsWeather.sunrise)}</h4>
               <p>Sunrise</p>
-              <h4>{currentHour(dailyDetailsWeather.sunset)}:{currentMinutes(dailyDetailsWeather.sunset)}</h4>
+              <h4>{currentHour(dailyDetailsWeather.sunset, weatherData.timezone_offset)}:{currentMinutes(dailyDetailsWeather.sunset)}</h4>
               <span>Sunset</span>
             </div>
           </div>
