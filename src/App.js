@@ -10,13 +10,11 @@ function App() {
   return (
     <ToastState>
       <WeatherState>
-        <div className="App">
-          <div className='container'>
-            <Search />
-            <Today />
-            <Hourly />
-            <Daily />
-          </div>
+        <div className='container'>
+          <Search />
+          <Today />
+          <Hourly />
+          <Daily />
         </div>
       </WeatherState>
     </ToastState>
