@@ -17,7 +17,7 @@ export const Search = () => {
         type="text"
         name='text'
         className='search-input'
-        placeholder='Search city...'
+        placeholder='Search for a city...'
         onClick={(e) => e.target.value = ''}
         onKeyUp={handleSearchCity}
       />
