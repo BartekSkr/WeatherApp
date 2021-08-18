@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react'
+import './Daily.css'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonthNumber, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 

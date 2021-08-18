@@ -1,0 +1,53 @@
+.daily-weather {
+  padding: 0 1rem 1rem 1rem;
+  text-align: left;
+  animation: components-animation var(--animation-time);
+  animation-delay: -0.15s;
+}
+
+.daily-weather h2 {
+  margin-bottom: var(--margin-bottom);
+}
+
+.daily-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--div-background-color);
+  border-radius: var(--border-radius);
+}
+
+.daily-details div {
+  width: 33%;
+}
+
+.daily-details p {
+  margin-bottom: var(--margin-bottom);
+}
+
+.daily-details :is(h4, span, p) {
+  padding: 2px;
+}
+
+.daily-details {
+  margin: 0 1rem 0 1rem;
+  display: none;
+}
+
+.visible {
+  display: flex;
+  animation: daily-details-in 0.3s;
+}
+
+/* Layout on larger screens */
+@media (min-width: 1000px) {
+  .daily-weather h2 {
+    margin: 2rem 0 1rem 0;
+  }
+
+  .daily-details {
+    min-width: 400px;
+    max-width: 50%;
+    margin: auto;
+  }
+}

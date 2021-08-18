@@ -1,0 +1,19 @@
+.hourly-weather {
+  padding: 0 1rem 1rem 1rem;
+  text-align: left;
+  animation: components-animation var(--animation-time);
+}
+
+.hourly-weather {
+  animation-delay: -0.25s;
+}
+
+.hourly-weather h2 {
+  margin-bottom: var(--margin-bottom);
+}
+
+@media (min-width: 1000px) {
+  .hourly-weather h2 {
+    margin: 2rem 0 1rem 0;
+  }
+}

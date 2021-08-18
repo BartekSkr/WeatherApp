@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react'
+import './Today.css'
 import { currentDay, currentDayName, currentHour, currentMinutes, currentMonth, onlyCityName, windDirection, windSpeedToKm } from '../utils/helpers'
 import WeatherContext from '../context/weather/weatherContext'
 import ToastContext from '../context/toast/toastContext'

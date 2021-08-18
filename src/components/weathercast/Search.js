@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import './Search.css'
 import ReactTooltip from 'react-tooltip'
 import WeatherContext from '../context/weather/weatherContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
