@@ -37,6 +37,8 @@ interface SearchProps {
   setLoading: (loading: boolean) => void;
   isLoading: boolean;
   setTempUnit: () => void;
+  cityNameError: boolean;
+  locationError: boolean;
 }
 
 const Search: React.FC<SearchProps> = ({
@@ -49,6 +51,8 @@ const Search: React.FC<SearchProps> = ({
   setLoading,
   isLoading,
   setTempUnit,
+  cityNameError,
+  locationError,
 }) => {
   useEffect(() => {
     handleUserLocation(
@@ -108,9 +112,14 @@ const Search: React.FC<SearchProps> = ({
       >
         <FontAwesomeIcon icon={faMapMarkerAlt} id='locationIcon' />
       </button>
-      <label className='switch-unit'>
-        <input type='checkbox' />
-        <div className='slider' onClick={setTempUnit}></div>
+      <label className='switch'>
+        <input type='checkbox' disabled={cityNameError || locationError} />
+        <div
+          className={
+            cityNameError || locationError ? 'slider-inactive' : 'slider'
+          }
+          onClick={setTempUnit}
+        ></div>
       </label>
     </div>
   );
@@ -118,6 +127,8 @@ const Search: React.FC<SearchProps> = ({
 
 const mapStateToProps = (state: RootState) => ({
   isLoading: state.isLoading,
+  cityNameError: state.cityNameError,
+  locationError: state.locationError,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AppDispatch>) => ({

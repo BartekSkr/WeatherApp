@@ -47,7 +47,7 @@
     }
   }
 
-  .switch-unit {
+  .switch {
     position: absolute;
     display: inline-block;
     width: 3rem;
@@ -83,28 +83,34 @@
         transition: .4s;
         border-radius: 50%;
       }
+
+      &-inactive {
+        @extend .slider;
+        opacity: 0.3;
+        pointer-events: none;
+      }
     }
 
-    input:checked + .slider:before {
+    input:checked+.slider:before {
       -webkit-transform: translateX(1.5rem);
       -ms-transform: translateX(1.5rem);
       transform: translateX(1.5rem);
     }
 
     .slider:after {
-      content: 'C';
+      content: '°C';
       color: blue;
       display: block;
       position: absolute;
       transform: translate(0, -50%);
       top: 50%;
-      right: 20%;
+      right: 10%;
       font-size: 0.9rem;
     }
 
-    input:checked + .slider:after {
-      content: 'F';
-      right: 55%;
+    input:checked+.slider:after {
+      content: '°F';
+      right: 50%;
     }
   }
 }
@@ -115,7 +121,7 @@
       font-size: 1rem;
     }
 
-    .switch-unit {
+    .switch {
       right: -3.4rem;
     }
   }
