@@ -1,0 +1,84 @@
+:root {
+  --box-background-color: rgba(241, 240, 240, 0.2);
+  --scrollbar-thumb: rgba(177, 177, 177, 0.4);
+  --margin-bottom: 1rem;
+  --border-radius: 10px;
+  --animation-time: 0.4s;
+  --alert-background-color: orange;
+  --main-light-color: whitesmoke;
+}
+
+$breakpoints: ('xxl': '1400px', 'xl': '1200px', 'lg': '992px', 'md': '768px', 'sm': '576px');
+
+%scroll-div {
+  display: inline-flex;
+  width: 100%;
+  overflow-x: auto;
+  /* Firefox scrollbar style */
+  scrollbar-color: var(--scrollbar-thumb) var(--box-background-color);
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    background: var(--box-background-color);
+    height: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 0.25rem;
+    border: 0.25rem solid transparent;
+
+    &:hover {
+      background-color: rgba(177, 177, 177, 0.6);
+    }
+  }
+}
+
+%scroll-box {
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+  min-width: 6.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  transition: 0.15s;
+}
+
+//  animations
+@keyframes components-animation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes daily-details-in {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes alert-popup-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,26 @@
+@use 'sass:map';
+@import './app/helpers/vars';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  background: linear-gradient(rgb(37, 37, 187), rgb(104, 141, 252)) fixed center;
+  color: var(--main-light-color);
+  letter-spacing: 0.1rem;
+}
+
+.app-container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding-top: 0.5rem;
+  user-select: none;
+  margin-bottom: var(--margin-bottom);
+}

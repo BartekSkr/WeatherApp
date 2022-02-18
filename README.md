@@ -1,17 +1,17 @@
-# WeatherApp
+### General info
 
-## General info
+App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
 
-App shows the weather in user's location as well as in any city.
+### Build using:
 
-## Technologies
+- [SASS](https://sass-lang.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://create-react-app.dev/docs/adding-typescript/)
+- [Redux](https://react-redux.js.org/introduction/getting-started)
+- [Open Weather API](https://openweathermap.org/)
 
-App has been created in [React.js](https://reactjs.org/).
+### Setup
 
-The API used in the application comes from [Open Weather](https://openweathermap.org/).
+To run app click link below:
 
-## Setup
-
-To run the app click link below:
-
-https://bartek-weather-app.netlify.app
+https://bartek-weather-app.netlify.app/

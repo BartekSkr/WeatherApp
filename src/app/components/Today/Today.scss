@@ -1,0 +1,97 @@
+@use "sass:map";
+@import '../../helpers/vars';
+
+.error-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+  font-size: 1.5rem;
+  width: 80%;
+  margin: 4rem auto;
+  justify-content: center;
+  animation: components-animation var(--animation-time);
+}
+
+.today-weather {
+  padding: 1rem;
+  animation: components-animation var(--animation-time);
+
+  .location {
+    text-align: left;
+    margin-bottom: var(--margin-bottom)
+  }
+
+  .main-data {
+    .today-container {
+      .today-temp {
+        text-align: left;
+        margin-bottom: var(--margin-bottom);
+        display: flex;
+
+        .today-icon {
+          margin-right: 2rem;
+        }
+
+        .today-temp-desc {
+          display: grid;
+          margin-top: 0.7rem;
+
+          span {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .today-data {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 1rem 0 1rem;
+      background-color: var(--box-background-color);
+      border-radius: var(--border-radius);
+
+      div {
+        width: 33%;
+      }
+
+      p {
+        margin-bottom: var(--margin-bottom);
+      }
+
+      :is(h4, span, p) {
+        padding: 2px;
+      }
+    }
+  }
+}
+
+@media (min-width: map.get($breakpoints, lg)) {
+  .error-info {
+    width: 50%;
+  }
+
+  .today-weather{
+    .main-data {
+      display: flex;
+
+      .today-container {
+        flex: 1;
+
+        .today-temp {
+          justify-content: center;
+          margin: auto;
+
+          .today-icon {
+            size: 7em;
+          }
+        }
+      }
+
+      .today-data {
+        flex: 1
+      }
+    }
+  }
+}

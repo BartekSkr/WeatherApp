@@ -1,0 +1,78 @@
+@use "sass:map";
+@import '../../helpers/vars';
+
+.daily-weather {
+  padding: 0 1rem 1rem 1rem;
+  text-align: left;
+  animation: components-animation var(--animation-time);
+  animation-delay: -0.5s;
+
+  h2 {
+    margin-bottom: var(--margin-bottom);
+  }
+
+  .scroll-div {
+    @extend %scroll-div;
+
+    .scroll-box {
+      @extend %scroll-box;
+      cursor: pointer;
+
+      &-clicked {
+        @extend %scroll-box;
+        background-color: rgba(241, 240, 240, 0.5);
+        transform: scale(0.97);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+.daily-details {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--box-background-color);
+  border-radius: var(--border-radius);
+
+  margin: 0 1rem 0 1rem;
+  display: none;
+
+  div {
+    width: 33%;
+
+    p {
+      margin-bottom: var(--margin-bottom);
+    }
+  }
+
+  :is(h4, span, p) {
+    padding: 2px;
+  }
+}
+
+.daily-details-visible {
+  @extend .daily-details;
+  display: flex;
+  animation: daily-details-in 0.3s;
+}
+
+@media (min-width: map.get($breakpoints, lg)) {
+  .daily-weather {
+    h2 {
+      margin: 2rem 0 1rem 0;
+    }
+
+    .scroll-box,
+    .scroll-box-clicked {
+      flex: 1;
+      min-width: 8rem;
+    }
+  }
+
+  .daily-details {
+    min-width: 400px;
+    max-width: 50%;
+    margin: auto;
+  }
+}
