@@ -1,6 +1,6 @@
 ### General info
 
-App allows you to search characters from a Star Wars, add/remove them to/from your favorites list.
+The application shows the weather in the user's location and in the selected city.
 
 ### Build using:
 
