@@ -12,6 +12,11 @@ The application shows the weather in the user's location and in the selected cit
 
 ### Setup
 
-To run app click link below:
+To run app click link [Weather App](https://bartek-weather-app.netlify.app/)
 
-https://bartek-weather-app.netlify.app/
+or run it locally:
+
+```
+$ npm install
+$ npm run start
+```
