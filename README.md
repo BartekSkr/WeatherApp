@@ -17,6 +17,6 @@ To run app click link [Weather App](https://bartek-weather-app.netlify.app/)
 or run it locally:
 
 ```
-$ npm install
-$ npm run start
+$ yarn
+$ yarn start
 ```
