@@ -1,8 +1,7 @@
-import { createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { dataReducer } from '../reducers/dataReducers'
+import { configureStore } from '@reduxjs/toolkit';
+import { dataReducer } from '../reducers/dataReducers';
 
-export const store = createStore(dataReducer, composeWithDevTools())
+export const store = configureStore({ reducer: dataReducer });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = ReturnType<typeof store.dispatch>
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = ReturnType<typeof store.dispatch>;

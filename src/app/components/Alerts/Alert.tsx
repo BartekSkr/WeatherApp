@@ -17,8 +17,8 @@ interface AlertProps {
 const Alert: React.FC<AlertProps> = ({ weatherData, setAlertPopUp }) => {
   return (
     <Fragment>
-      <div className='alert-info' onClick={() => setAlertPopUp(true)}>
-        <FontAwesomeIcon icon={faInfoCircle} className='alert-info-icon' />
+      <div className="alert-info" onClick={() => setAlertPopUp(true)}>
+        <FontAwesomeIcon icon={faInfoCircle} className="alert-info-icon" />
         <span>
           {weatherData[0].alerts[0].event}
           {alertsNumber([weatherData[0].alerts].length!)}
